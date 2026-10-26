@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_641059714842493660": {
+      "settings": {
+        "checksum": "e0676e91b7959c4804d517d0d77fa6388ec5e5660b6baf384aac384dc4eca433_1_1_0_0__1",
+        "ggBrandTxt1_text": "MenHaven",
+        "ggD2yJ8kUr4_text": "<p>The toilet visit is over. You zip up, walk away — and then <strong>the last drops arrive.</strong> MenHaven gives those moments a practical backup: <strong>absorbent protection built into everyday boxer briefs.</strong></p>",
+        "ggH8wK2vBx7_text": "5 REASONS WHY MENHAVEN MAKES THOSE LAST DROPS EASIER TO MANAGE.",
+        "ggIntroBold_text": "<strong>Still getting a few drops after you’ve finished?</strong>",
+        "ggIntroMore_text": "Here are 5 reasons to make room for MenHaven in your underwear drawer:",
+        "ggIntroNote_text": "<strong><span style=\"color:#db1717\">Note:</span></strong> Made for light leaks, including those last drops after the toilet.",
+        "section_preload": "true"
+      },
+      "type": "gp-section-641059714842493660"
+    },
+    "gp_section_641059870736384732": {
+      "settings": {
+        "checksum": "5de0f9cc171318ea8b7058ce3cbe6e310025455144e16f29dd661f1501d6ece3_1_1_0_0__1",
+        "ggCleanBdy0_text": "<p>The zip is up. You’ve already walked away. Then come a few more drops. MenHaven’s <strong>built-in absorbent protection</strong> is designed for light leaks like these. It gives those drops somewhere to go beyond ordinary underwear — with <strong>protection already in place</strong> when you leave the bathroom.</p>",
+        "ggCleanBdy1_text": "<p>Work trousers. Jeans. A favourite pair of chinos. MenHaven has a <strong>familiar boxer-brief shape</strong> with a plain waistband and everyday colours. You can add protection to your routine while keeping the underwear style you’re used to. <strong>A simple change underneath your usual clothes.</strong></p>",
+        "ggCleanBdy2_text": "<p>The protection is <strong>part of the underwear itself</strong>, so there’s no separate pad to position inside this pair. Choose your size, put them on and change when needed. MenHaven brings the underwear and absorbent area together in <strong>one washable garment</strong> for men who prefer an integrated option.</p>",
+        "ggCleanBdy3_text": "<p>A fresh pair doesn’t have to mean a disposable product. MenHaven is <strong>washable and reusable</strong>: follow the care label, let the pair dry fully, and wear it again. Keep a clean pair ready while another is in the wash. <strong>One practical routine you can repeat.</strong></p>",
+        "ggCleanBdy4_text": "<p>A coffee with friends. An afternoon out. Another day at work. Those last drops deserve a practical plan, but they don’t have to be the whole plan. MenHaven offers <strong>everyday backup for light leaks</strong>. Find your fit, try them at home, and take that routine into <strong>the moments that matter.</strong></p>",
+        "ggCleanHdr0_text": "1. Backup For The Drops That Arrive Late",
+        "ggCleanHdr1_text": "2. A Familiar Look Under Everyday Clothes",
+        "ggCleanHdr2_text": "3. Protection Built Into Your Boxer Briefs",
+        "ggCleanHdr3_text": "4. Wash Them. Wear Them. Repeat.",
+        "ggCleanHdr4_text": "5. Get On With The Rest Of Your Day",
+        "ggCleanImg0_alt": "Black protective boxer briefs.",
+        "ggCleanImg0_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-product-square.jpg",
+        "ggCleanImg1_alt": "A man in everyday clothes at home.",
+        "ggCleanImg1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-everyday.jpg",
+        "ggCleanImg2_alt": "Black boxer briefs in a drawer.",
+        "ggCleanImg2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-drawer.jpg",
+        "ggCleanImg3_alt": "Folded black underwear beside a washing machine.",
+        "ggCleanImg3_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-wash.jpg",
+        "ggCleanImg4_alt": "A man enjoying a walk outdoors.",
+        "ggCleanImg4_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-outdoors-square.jpg"
+      },
+      "type": "gp-section-641059870736384732"
+    },
+    "gp_section_641059933046964956": {
+      "settings": {
+        "checksum": "77e179c6c8dc456255b94761fb2af80cd7c2c40a60ac0df3f7ee8442ca508c89_1_1_0_0__1",
+        "ggOfferBody_text": "Choose your colour and size.<br>Make room for a little more backup.",
+        "ggOfferBtn1_label": "SHOP MENHAVEN",
+        "ggOfferCost_text": "<strong>£29.95</strong> &nbsp; <s>£60.00</s> &nbsp; per pair",
+        "ggOfferFit1_text": "Check the size guide for your best fit.",
+        "ggOfferFlagT_text": "CURRENT OFFER",
+        "ggOfferFootT_text": "MenHaven advertising content · Illustrative imagery.<br>Protective underwear manages light leakage; it does not treat the cause. For advice about after-dribble, see <a href=\"https://www.gloshospitals.nhs.uk/your-visit/patient-information-leaflets/after-dribble-post-micturition-dribble/\" target=\"_blank\" rel=\"noopener\">NHS guidance</a> or speak to a GP.",
+        "ggOfferHead_text": "EVERYDAY PROTECTION.<br>SAVE 50% TODAY.",
+        "ggOfferInfo_text": "Sizes S–8XL &nbsp; | &nbsp; Black, Grey & Navy",
+        "ggOfferPic1_alt": "MenHaven black boxer briefs.",
+        "ggOfferPic1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0606/3102/3665/files/menhaven-product-square.jpg",
+        "ggOfferTag1_text": "WASHABLE · REUSABLE"
+      },
+      "type": "gp-section-641059933046964956"
+    }
+  },
+  "order": [
+    "gp_section_641059714842493660",
+    "gp_section_641059870736384732",
+    "gp_section_641059933046964956"
+  ]
+}
