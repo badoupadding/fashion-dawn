@@ -105,7 +105,7 @@
         "order_help": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Questions before ordering?",
+            "heading": "Need help before ordering?",
             "icon": "chat_bubble",
             "content": "<p>For help with sizing, product details or your order, <a href=\"/pages/contact\">contact Luxelette</a>.</p>"
           }
