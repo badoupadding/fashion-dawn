@@ -204,7 +204,8 @@
         }
       }
     },
-    "fashion_sale_color": "#17633F"
+    "fashion_sale_color": "#17633F",
+    "fashion_show_savings": true
   },
   "presets": {
     "Classic navy": {

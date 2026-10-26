@@ -20,14 +20,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Everyday style, for cooler days.",
+            "heading": "The collection sale",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Discover winter outerwear, classic Mary Janes, and everyday loafers.",
+            "text": "Winter layers and classic footwear, now for less. Available while stock lasts.",
             "text_style": "body"
           }
         },
@@ -89,7 +89,7 @@
     "faq": {
       "type": "collapsible-content",
       "settings": {
-        "heading": "A few helpful answers",
+        "heading": "Shopping with Luxelette",
         "heading_size": "h1",
         "caption": "The shopping guide",
         "heading_alignment": "center",

@@ -1505,6 +1505,13 @@
         "id": "fashion_sale_color",
         "label": "Sale price color",
         "default": "#17633F"
+      },
+      {
+        "type": "checkbox",
+        "id": "fashion_show_savings",
+        "label": "Show calculated savings",
+        "default": true,
+        "info": "Uses real compare-at prices. Percentage labels are hidden when variant prices are inconsistent."
       }
     ]
   },

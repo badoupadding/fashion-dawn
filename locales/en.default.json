@@ -155,7 +155,9 @@
       "returns_information": "Returns & exchanges",
       "payment_options": "Payment options",
       "adding_to_cart": "Adding...",
-      "change_options": "Change options"
+      "change_options": "Change options",
+      "save_percent": "Save {{ percentage }}%",
+      "you_save": "You save {{ amount }}"
     },
     "brand": {
       "hero_alt": "Two women enjoying an afternoon walk in warm, neutral outfits."

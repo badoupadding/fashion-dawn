@@ -56,29 +56,78 @@
             "label": "Size guide"
           }
         },
-        "purchase_info": {
-          "type": "fashion_purchase_info",
-          "settings": {
-            "show_policies": true,
-            "show_payments": true
-          }
-        },
         "rating": {
           "type": "rating"
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 5,
+            "show_inventory_quantity": true,
+            "sale_message": "Sale ends when sold out.",
+            "confirm_untracked_stock": true,
+            "untracked_message": "Limited stock — sale ends when sold out."
+          }
+        },
+        "checkout_trust": {
+          "type": "fashion_checkout_trust",
+          "settings": {
+            "secure_label": "Secure checkout",
+            "show_payments": true,
+            "contact_label": "Questions before ordering? Contact us",
+            "contact_url": "shopify://pages/contact"
+          }
+        },
+        "offer_note": {
+          "type": "text",
+          "settings": {
+            "text": "Collection sale · Available while stock lasts",
+            "text_style": "body"
+          }
+        },
+        "sizing_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Sizing & fit",
+            "icon": "ruler",
+            "content": "<p>Check the size and fit details in the product description before choosing your size. Measurements can vary by style. If you need help, <a href=\"/pages/contact\">contact us before ordering</a>.</p>"
+          }
+        },
+        "sale_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "When does the sale end?",
+            "icon": "price_tag",
+            "content": "<p>The current collection sale ends when stock sells out. Availability depends on your chosen style, color and size.</p>"
+          }
+        },
+        "order_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Questions before ordering?",
+            "icon": "chat_bubble",
+            "content": "<p>For help with sizing, product details or your order, <a href=\"/pages/contact\">contact Luxelette</a>.</p>"
+          }
         }
       },
       "block_order": [
         "title",
         "rating",
         "price",
+        "offer_note",
         "summary",
         "variant_picker",
         "size_guide",
         "fit",
+        "inventory",
         "buy_buttons",
-        "purchase_info",
+        "checkout_trust",
         "service",
-        "description"
+        "description",
+        "sizing_help",
+        "sale_help",
+        "order_help"
       ],
       "settings": {
         "enable_sticky_info": true,

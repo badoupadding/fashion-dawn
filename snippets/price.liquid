@@ -107,6 +107,10 @@
         <span class="price-item price-item--sale price-item--last">
           {{ money_price }}
         </span>
+        {%- if use_variant and settings.fashion_show_savings and compare_at_price > price and price > 0 -%}
+          {%- assign saved_amount = compare_at_price | minus: price | money -%}
+          <span class="price__savings">{{ 'fashion.product.you_save' | t: amount: saved_amount }}</span>
+        {%- endif -%}
       </div>
       {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
         {% render 'unit-price', price: product.selected_or_first_available_variant.unit_price, measurement: product.selected_or_first_available_variant.unit_price_measurement %}
@@ -114,7 +118,7 @@
     </div>
     {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
+        {% render 'fashion-sale-label', target: target, exact: use_variant %}
       </span>
 
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

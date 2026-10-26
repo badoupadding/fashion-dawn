@@ -1,0 +1,20 @@
+{% doc %}
+  Shows a conservative percentage only for a consistent price pair.
+  @param {object} target - Product or selected variant.
+  @param {boolean} [exact] - Target is a selected variant.
+{% enddoc %}
+{%- liquid
+  assign consistent = exact
+  if target.price_varies == false and target.compare_at_price_varies == false
+    assign consistent = true
+  endif
+  assign percentage = 0
+  if consistent and target.compare_at_price > target.price and target.price > 0
+    assign percentage = target.compare_at_price | minus: target.price | times: 100.0 | divided_by: target.compare_at_price | floor
+  endif
+-%}
+{%- if settings.fashion_show_savings and percentage > 0 -%}
+  {{- 'fashion.product.save_percent' | t: percentage: percentage -}}
+{%- else -%}
+  {{- 'products.product.on_sale' | t -}}
+{%- endif -%}
