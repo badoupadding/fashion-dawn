@@ -17,8 +17,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Luxelette — Style for the way you live",
-            "link": ""
+            "text": "Collection sale — while stock lasts",
+            "link": "shopify://collections/winter-outerwear"
           }
         }
       },

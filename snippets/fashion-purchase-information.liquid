@@ -1,0 +1,42 @@
+{% doc %}
+  Renders actual configured policy links and enabled payment methods near the native buy button.
+  @param {object} block - The purchase information block.
+{% enddoc %}
+{%- liquid
+  assign has_shipping = false
+  assign has_returns = false
+  assign has_payments = false
+  if block.settings.show_policies and shop.shipping_policy.body != blank
+    assign has_shipping = true
+  endif
+  if block.settings.show_policies and shop.refund_policy.body != blank
+    assign has_returns = true
+  endif
+  if block.settings.show_payments and shop.enabled_payment_types.size > 0
+    assign has_payments = true
+  endif
+-%}
+{%- if has_shipping or has_returns or has_payments -%}
+  <div class="fashion-purchase-info" {{ block.shopify_attributes }}>
+    {%- if has_shipping or has_returns -%}
+      <div class="fashion-purchase-info__links">
+        {%- if has_shipping -%}<a href="{{ shop.shipping_policy.url }}">{{ 'fashion.product.shipping_information' | t }}</a>{%- endif -%}
+        {%- if has_returns -%}<a href="{{ shop.refund_policy.url }}">{{ 'fashion.product.returns_information' | t }}</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if has_payments -%}
+      <p class="fashion-purchase-info__label">{{ 'fashion.product.payment_options' | t }}</p>
+      <ul class="fashion-purchase-info__payments" role="list" aria-label="{{ 'fashion.product.payment_options' | t }}">
+        {%- for type in shop.enabled_payment_types limit: 6 -%}<li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>{%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{% stylesheet %}
+  .fashion-purchase-info { font-size: 1.35rem; line-height: 1.6; }
+  .fashion-purchase-info__links { display: flex; gap: .8rem 2rem; flex-wrap: wrap; }
+  .fashion-purchase-info__links a { color: rgb(var(--color-foreground)); text-underline-offset: .3rem; padding-block: .8rem; }
+  .fashion-purchase-info__label { margin: 1rem 0 .6rem; }
+  .fashion-purchase-info__payments { display: flex; flex-wrap: wrap; align-items: center; list-style: none; gap: .8rem; padding: 0; margin: 0; }
+  .fashion-purchase-info__payments svg { width: 3.8rem; height: 2.4rem; }
+{% endstylesheet %}

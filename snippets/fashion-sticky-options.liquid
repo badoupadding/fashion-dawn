@@ -1,51 +1,43 @@
 {% doc %}
-  Renders a mobile link to the native product options without duplicating checkout state.
+  Mirrors the native buy button and server-rendered price without a second cart form.
   @param {object} product - The product being viewed.
   @param {string} section_id - The main product section ID.
-  @param {string} color_scheme - The main product section colour scheme.
+  @param {string} color_scheme - The main product colour scheme.
+  @param {boolean} sticky_enabled - Whether to show the sticky purchase bar.
 {% enddoc %}
-<fashion-sticky-options class="fashion-sticky-options color-{{ color_scheme }} gradient" data-section-id="{{ section_id }}" hidden>
-  <div class="fashion-sticky-options__inner">
-    <span class="fashion-sticky-options__title">{{ product.title | escape }}</span>
-    <a class="button" href="#ProductInfo-{{ section_id }}">{{ 'fashion.product.choose_options' | t }}</a>
+<script src="{{ 'fashion-purchase-controls.js' | asset_url }}" defer="defer"></script>
+<fashion-sticky-options class="fashion-sticky-options color-{{ color_scheme }} gradient" data-section-id="{{ section_id }}" data-sticky-enabled="{{ sticky_enabled }}" data-adding-label="{{ 'fashion.product.adding_to_cart' | t }}" hidden>
+  <div class="fashion-sticky-options__inner page-width">
+    <div class="fashion-sticky-options__product">
+      <span class="fashion-sticky-options__title">{{ product.title | escape }}</span>
+      <span class="fashion-sticky-options__selection" data-sticky-options></span>
+      {%- unless product.has_only_default_variant -%}<a class="fashion-sticky-options__change" href="#ProductInfo-{{ section_id }}">{{ 'fashion.product.change_options' | t }}</a>{%- endunless -%}
+    </div>
+    <div class="fashion-sticky-options__prices"><span data-sticky-price></span><s data-sticky-compare hidden></s></div>
+    <button class="button" type="button" data-sticky-add disabled>{{ 'products.product.add_to_cart' | t }}</button>
   </div>
+  <p class="fashion-sticky-options__error page-width" role="alert" data-sticky-error hidden></p>
 </fashion-sticky-options>
 {% stylesheet %}
   .fashion-sticky-options { display: none; }
+  .fashion-sticky-options:not([hidden]) { display: block; position: fixed; z-index: 3; bottom: 0; inset-inline: 0; border-top: .1rem solid rgba(var(--color-foreground), .16); padding-block: 1.2rem max(1.2rem, env(safe-area-inset-bottom)); background: rgb(var(--color-background)); }
+  .fashion-sticky-options__inner { display: flex; gap: 2.4rem; align-items: center; }
+  .fashion-sticky-options__product { flex: 1; min-width: 0; }
+  .fashion-sticky-options__title, .fashion-sticky-options__selection { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fashion-sticky-options__title { font-size: 1.5rem; font-weight: 600; }
+  .fashion-sticky-options__selection { font-size: 1.3rem; margin-top: .3rem; }
+  .fashion-sticky-options__change { display: inline-block; padding-block: .5rem; color: rgb(var(--color-foreground)); font-size: 1.2rem; text-underline-offset: .3rem; }
+  .fashion-sticky-options__prices { display: flex; align-items: baseline; gap: 1rem; font-size: 2rem; font-weight: 700; }
+  .fashion-sticky-options__prices s { font-size: 1.4rem; font-weight: 400; color: rgba(var(--color-foreground), .75); text-decoration-thickness: 1px; }
+  .fashion-sticky-options[data-on-sale='true'] [data-sticky-price] { color: var(--fashion-sale-color); }
+  .fashion-sticky-options .button { min-width: 25rem; min-height: 5.2rem; padding: 1.2rem 2rem; flex-shrink: 0; font-weight: 600; }
+  .fashion-sticky-options__error { font-size: 1.4rem; line-height: 1.5; margin-block: .8rem 0; }
+  body:has(.fashion-sticky-options:not([hidden])) { padding-bottom: 11rem; }
   @media screen and (max-width: 749px) {
-    .fashion-sticky-options:not([hidden]) { display: block; position: fixed; z-index: 3; bottom: 0; inset-inline: 0; border-top: .1rem solid rgba(var(--color-foreground), .16); padding: 1.2rem 1.6rem max(1.2rem, env(safe-area-inset-bottom)); background: rgb(var(--color-background)); }
-    .fashion-sticky-options__inner { display: flex; gap: 1.2rem; align-items: center; }
-    .fashion-sticky-options__title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1.4rem; }
-    .fashion-sticky-options .button { flex-shrink: 0; padding-inline: 1.6rem; }
-    body:has(.fashion-sticky-options:not([hidden])) { padding-bottom: 9rem; }
+    .fashion-sticky-options__inner { gap: 1rem; padding-inline: 1.6rem; }
+    .fashion-sticky-options__prices { display: none; }
+    .fashion-sticky-options .button { min-width: 0; max-width: 65%; font-size: 1.5rem; padding-inline: 1.4rem; }
+    .fashion-sticky-options__title { font-size: 1.3rem; }
+    .fashion-sticky-options__selection { font-size: 1.2rem; }
   }
-  @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
 {% endstylesheet %}
-{% javascript %}
-  if (!customElements.get('fashion-sticky-options')) {
-    customElements.define('fashion-sticky-options', class extends HTMLElement {
-      connectedCallback() {
-        this.productSection = document.getElementById(`MainProduct-${this.dataset.sectionId}`);
-        if (!this.productSection || !('IntersectionObserver' in window)) return;
-        this.observer = new IntersectionObserver(([entry]) => {
-          this.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
-        });
-        this.observer.observe(this.productSection);
-        this.onClick = (event) => {
-          event.preventDefault();
-          const info = document.getElementById(`ProductInfo-${this.dataset.sectionId}`);
-          const target = info?.querySelector('variant-selects') || info;
-          if (!target) return;
-          target.scrollIntoView({ behavior: 'instant', block: 'center' });
-          const input = target.querySelector('input:checked:not(:disabled), select, button:not(:disabled)');
-          input?.focus({ preventScroll: true });
-        };
-        this.querySelector('a').addEventListener('click', this.onClick);
-      }
-      disconnectedCallback() {
-        this.observer?.disconnect();
-        this.querySelector('a')?.removeEventListener('click', this.onClick);
-      }
-    });
-  }
-{% endjavascript %}

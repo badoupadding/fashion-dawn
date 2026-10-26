@@ -48,7 +48,7 @@
       {%- if available == false %} price--sold-out{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
-      {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+      {%- if product.price_varies == false and product.compare_at_price_varies and use_variant != true %} price--no-compare{% endif -%}
       {%- if show_badges %} price--show-badge{% endif -%}
     "
   >
@@ -61,7 +61,7 @@
       <div class="price__regular">
         {%- if product.quantity_price_breaks_configured? -%}
           {%- if show_compare_at_price and compare_at_price -%}
-            {%- unless product.price_varies == false and product.compare_at_price_varies %}
+            {%- unless product.price_varies == false and product.compare_at_price_varies and use_variant != true %}
               <span class="visually-hidden visually-hidden--inline">
                 {{- 'products.product.price.regular_price' | t -}}
               </span>
@@ -91,7 +91,7 @@
         {%- endif -%}
       </div>
       <div class="price__sale">
-        {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        {%- unless product.price_varies == false and product.compare_at_price_varies and use_variant != true %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
             <s class="price-item price-item--regular">
@@ -107,6 +107,10 @@
         <span class="price-item price-item--sale price-item--last">
           {{ money_price }}
         </span>
+        {%- if use_variant and settings.fashion_show_savings and compare_at_price > price and price > 0 -%}
+          {%- assign saved_amount = compare_at_price | minus: price | money -%}
+          <span class="price__savings">{{ 'fashion.product.you_save' | t: amount: saved_amount }}</span>
+        {%- endif -%}
       </div>
       {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
         {% render 'unit-price', price: product.selected_or_first_available_variant.unit_price, measurement: product.selected_or_first_available_variant.unit_price_measurement %}
@@ -114,7 +118,7 @@
     </div>
     {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
+        {% render 'fashion-sale-label', target: target, exact: use_variant %}
       </span>
 
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

@@ -1,6 +1,6 @@
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="{% if section.settings.fashion_purchase_layout %}fashion-pdp {% endif %}section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -88,6 +88,12 @@
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
+                {%- when 'fashion_summary' -%}
+                  {% render 'fashion-product-summary', product: product, block: block %}
+                {%- when 'fashion_size_guide' -%}
+                  {% render 'fashion-size-guide', block: block %}
+                {%- when 'fashion_purchase_info' -%}
+                  {% render 'fashion-purchase-information', block: block %}
                 {%- when 'fashion_note' -%}
                   {% render 'fashion-product-note', block: block %}
                 {%- when '@app' -%}
@@ -135,9 +141,16 @@
                   {% render 'fashion-checkout-trust', block: block %}
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
-                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                      {{ product.description }}
-                    </div>
+                    {%- if section.settings.fashion_description_accordion -%}
+                      <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                        <details id="Description-{{ section.id }}" open>
+                          <summary><div class="summary__title"><h2 class="h4 accordion__title">{{ 'fashion.product.product_details' | t }}</h2></div>{{ 'icon-caret.svg' | inline_asset_content }}</summary>
+                          <div class="accordion__content rte">{{ product.description }}</div>
+                        </details>
+                      </div>
+                    {%- else -%}
+                      <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>{{ product.description }}</div>
+                    {%- endif -%}
                   {%- endif -%}
                 {%- when 'sku' -%}
                   <p
@@ -693,8 +706,8 @@
     </div>
   </product-component>
 </product-info>
-{%- if section.settings.fashion_sticky_options -%}
-  {% render 'fashion-sticky-options', product: product, section_id: section.id, color_scheme: section.settings.color_scheme %}
+{%- if section.settings.fashion_sticky_options or section.settings.fashion_purchase_layout -%}
+  {% render 'fashion-sticky-options', product: product, section_id: section.id, color_scheme: section.settings.color_scheme, sticky_enabled: section.settings.fashion_sticky_options %}
 {%- endif -%}
 
 {% schema %}
@@ -903,6 +916,12 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "fashion_show_price",
+          "label": "Show current variant price in add-to-cart button",
+          "default": false
         }
       ]
     },
@@ -2168,6 +2187,63 @@
       ]
     },
     {
+      "type": "fashion_summary",
+      "name": "Short product introduction",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Short introduction",
+          "info": "Use concise, accurate product benefits. Connect a dynamic source for product-specific text."
+        },
+        {
+          "type": "checkbox",
+          "id": "use_description",
+          "label": "Use a short description excerpt when empty",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "fashion_size_guide",
+      "name": "Size guide page",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Size guide page",
+          "info": "Hidden until a real page with content is selected. Remove this block when Kiwi provides your size guide."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Size guide"
+        }
+      ]
+    },
+    {
+      "type": "fashion_purchase_info",
+      "name": "Policies and payment options",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_policies",
+          "label": "Show links to configured shipping and return policies",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payments",
+          "label": "Show enabled payment methods",
+          "default": true
+        }
+      ]
+    },
+    {
       "type": "fashion_checkout_trust",
       "name": "Checkout reassurance",
       "limit": 1,
@@ -2376,8 +2452,20 @@
     {
       "type": "checkbox",
       "id": "fashion_sticky_options",
-      "label": "Show mobile link back to product options",
+      "label": "Show sticky add-to-cart on mobile and desktop",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "fashion_purchase_layout",
+      "label": "Use compact fashion purchase layout",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "fashion_description_accordion",
+      "label": "Show product description in an expandable row",
+      "default": false
     }
   ]
 }

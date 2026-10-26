@@ -16,14 +16,12 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_gift_card_recipient": false,
+            "fashion_show_price": true
           }
         },
         "description": {
@@ -44,17 +42,92 @@
             "heading": "",
             "text": ""
           }
+        },
+        "summary": {
+          "type": "fashion_summary",
+          "settings": {
+            "text": "",
+            "use_description": true
+          }
+        },
+        "size_guide": {
+          "type": "fashion_size_guide",
+          "settings": {
+            "label": "Size guide"
+          }
+        },
+        "rating": {
+          "type": "rating"
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 5,
+            "show_inventory_quantity": true,
+            "sale_message": "Sale ends when sold out.",
+            "confirm_untracked_stock": true,
+            "untracked_message": "Limited stock — sale ends when sold out."
+          }
+        },
+        "checkout_trust": {
+          "type": "fashion_checkout_trust",
+          "settings": {
+            "secure_label": "Secure checkout",
+            "show_payments": true,
+            "contact_label": "Questions before ordering? Contact us",
+            "contact_url": "shopify://pages/contact"
+          }
+        },
+        "offer_note": {
+          "type": "text",
+          "settings": {
+            "text": "Collection sale · Available while stock lasts",
+            "text_style": "body"
+          }
+        },
+        "sizing_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Sizing & fit",
+            "icon": "ruler",
+            "content": "<p>Check the size and fit details in the product description before choosing your size. Measurements can vary by style. If you need help, <a href=\"/pages/contact\">contact us before ordering</a>.</p>"
+          }
+        },
+        "sale_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "When does the sale end?",
+            "icon": "price_tag",
+            "content": "<p>The current collection sale ends when stock sells out. Availability depends on your chosen style, color and size.</p>"
+          }
+        },
+        "order_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Questions before ordering?",
+            "icon": "chat_bubble",
+            "content": "<p>For help with sizing, product details or your order, <a href=\"/pages/contact\">contact Luxelette</a>.</p>"
+          }
         }
       },
       "block_order": [
         "title",
+        "rating",
         "price",
+        "offer_note",
+        "summary",
         "variant_picker",
+        "size_guide",
         "fit",
-        "quantity_selector",
+        "inventory",
         "buy_buttons",
+        "checkout_trust",
         "service",
-        "description"
+        "description",
+        "sizing_help",
+        "sale_help",
+        "order_help"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -68,9 +141,11 @@
         "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 32,
-        "padding_bottom": 48,
-        "fashion_sticky_options": true
+        "padding_top": 24,
+        "padding_bottom": 32,
+        "fashion_sticky_options": true,
+        "fashion_purchase_layout": true,
+        "fashion_description_accordion": true
       }
     },
     "disclosures": {
@@ -94,8 +169,8 @@
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "campaign_story": {
