@@ -1,7 +1,7 @@
 name: Validate and package theme
 on:
   push:
-    branches: [main, luxelette]
+    branches: [main, luxelette, luxelette-product-focus]
   pull_request:
   workflow_dispatch:
 permissions:

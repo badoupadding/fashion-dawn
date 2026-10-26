@@ -1,0 +1,14 @@
+{% doc %}
+  Renders a short product introduction from merchant copy or the product description.
+  @param {object} product - The current product.
+  @param {object} block - The summary block.
+{% enddoc %}
+{%- if block.settings.text != blank -%}
+  <div class="fashion-product-summary rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+{%- elsif block.settings.use_description and product.description != blank -%}
+  <p class="fashion-product-summary" {{ block.shopify_attributes }}>{{ product.description | strip_html | strip | truncatewords: 28 | escape }}</p>
+{%- endif -%}
+{% stylesheet %}
+  .fashion-product-summary { font-size: 1.6rem; line-height: 1.65; }
+  .fashion-product-summary p { margin-block: 0; }
+{% endstylesheet %}

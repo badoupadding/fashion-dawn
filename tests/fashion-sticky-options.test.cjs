@@ -4,7 +4,7 @@ const { readFileSync } = require('node:fs');
 const { resolve } = require('node:path');
 const vm = require('node:vm');
 
-function setup() {
+function setup(withPurchaseButton = false) {
   let Component;
   let observer;
   let focused = false;
@@ -12,6 +12,7 @@ function setup() {
   let removed = false;
   const events = {};
   const section = {};
+  const purchaseButton = {};
   const input = { focus: () => { focused = true; } };
   const options = { scrollIntoView: () => { scrolled = true; }, querySelector: () => input };
   const info = { querySelector: () => options };
@@ -22,14 +23,19 @@ function setup() {
   }
   class Observer {
     constructor(callback) { this.callback = callback; observer = this; }
-    observe(element) { assert.equal(element, section); }
+    observe(element) { assert.equal(element, withPurchaseButton ? purchaseButton : section); }
     disconnect() { this.disconnected = true; }
   }
   const context = {
     HTMLElement: Element,
     IntersectionObserver: Observer,
     window: { IntersectionObserver: Observer },
-    document: { getElementById: (id) => id === 'MainProduct-test' ? section : info },
+    document: { getElementById: (id) => {
+      if (id === 'MainProduct-test') return section;
+      if (id === 'ProductSubmitButton-test') return withPurchaseButton ? purchaseButton : null;
+      if (id === 'ProductInfo-test') return info;
+      return null;
+    } },
     customElements: { get: () => undefined, define: (name, component) => { Component = component; } },
   };
   const source = readFileSync(resolve(__dirname, '../snippets/fashion-sticky-options.liquid'), 'utf8');
@@ -58,4 +64,12 @@ test('returns focus to the native options and releases observers on removal', ()
   element.disconnectedCallback();
   assert.equal(observer.disconnected, true);
   assert.equal(results().removed, true);
+});
+
+test('observes the buy button so long descriptions do not delay the mobile link', () => {
+  const { element, observer } = setup(true);
+  observer.callback([{ isIntersecting: false, boundingClientRect: { top: -80 } }]);
+  assert.equal(element.hidden, false);
+  observer.callback([{ isIntersecting: true, boundingClientRect: { top: 120 } }]);
+  assert.equal(element.hidden, true);
 });

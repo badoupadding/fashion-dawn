@@ -27,10 +27,11 @@
       connectedCallback() {
         this.productSection = document.getElementById(`MainProduct-${this.dataset.sectionId}`);
         if (!this.productSection || !('IntersectionObserver' in window)) return;
+        this.purchaseButton = document.getElementById(`ProductSubmitButton-${this.dataset.sectionId}`);
         this.observer = new IntersectionObserver(([entry]) => {
           this.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
         });
-        this.observer.observe(this.productSection);
+        this.observer.observe(this.purchaseButton || this.productSection);
         this.onClick = (event) => {
           event.preventDefault();
           const info = document.getElementById(`ProductInfo-${this.dataset.sectionId}`);
