@@ -767,8 +767,8 @@
     </div>
   </product-component>
 </product-info>
-{%- if section.settings.fashion_sticky_options -%}
-  {% render 'fashion-sticky-options', product: product, section_id: section.id, color_scheme: section.settings.color_scheme %}
+{%- if section.settings.fashion_sticky_options or section.settings.fashion_purchase_layout -%}
+  {% render 'fashion-sticky-options', product: product, section_id: section.id, color_scheme: section.settings.color_scheme, sticky_enabled: section.settings.fashion_sticky_options %}
 {%- endif -%}
 
 {% schema %}
@@ -958,6 +958,12 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "fashion_show_price",
+          "label": "Show current variant price in add-to-cart button",
+          "default": false
         }
       ]
     },
@@ -2458,7 +2464,7 @@
     {
       "type": "checkbox",
       "id": "fashion_sticky_options",
-      "label": "Show mobile link back to product options",
+      "label": "Show sticky add-to-cart on mobile and desktop",
       "default": true
     },
     {

@@ -5,6 +5,7 @@
   :root {
     --fashion-control-height: {{ settings.fashion_control_height | default: 48 }}px;
     --fashion-product-title-size: {{ settings.fashion_product_title_size | default: 32 }}px;
+    --fashion-sale-color: {{ settings.fashion_sale_color | default: '#17633F' }};
     {%- if settings.heading_style == 'clean' -%}
       --font-body-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-heading-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

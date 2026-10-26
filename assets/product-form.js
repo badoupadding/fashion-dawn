@@ -107,6 +107,7 @@ if (!customElements.get('product-form')) {
           })
           .catch((e) => {
             console.error(e);
+            this.handleErrorMessage(window.cartStrings.error);
             this.dispatchCartErrorEvent(e.message || 'Network error', 'SERVICE_UNAVAILABLE');
             linesUpdateDeferred?.reject(e);
           })

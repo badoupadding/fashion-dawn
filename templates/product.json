@@ -20,7 +20,8 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_gift_card_recipient": false,
+            "fashion_show_price": true
           }
         },
         "description": {

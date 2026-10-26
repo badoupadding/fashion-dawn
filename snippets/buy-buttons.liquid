@@ -91,6 +91,11 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
+            {%- if block.settings.fashion_show_price -%}
+              <span class="fashion-button-price" data-fashion-button-price{% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout or product.selected_or_first_available_variant == null %} hidden{% endif %}>
+                &nbsp;— {% if settings.currency_code_enabled %}{{ product.selected_or_first_available_variant.price | money_with_currency }}{% else %}{{ product.selected_or_first_available_variant.price | money }}{% endif %}
+              </span>
+            {%- endif -%}
             {%- render 'loading-spinner' -%}
           </button>
           {%- if show_dynamic_checkout -%}
@@ -150,3 +155,7 @@
   {%- endif -%}
 </div>
 
+
+{% stylesheet %}
+  .fashion-button-price { font-weight: inherit; white-space: nowrap; }
+{% endstylesheet %}

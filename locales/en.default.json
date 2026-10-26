@@ -153,7 +153,9 @@
       "product_details": "Product details",
       "shipping_information": "Shipping information",
       "returns_information": "Returns & exchanges",
-      "payment_options": "Payment options"
+      "payment_options": "Payment options",
+      "adding_to_cart": "Adding...",
+      "change_options": "Change options"
     },
     "brand": {
       "hero_alt": "Two women enjoying an afternoon walk in warm, neutral outfits."

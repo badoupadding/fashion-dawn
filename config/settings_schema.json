@@ -1499,6 +1499,12 @@
       {
         "type": "paragraph",
         "content": "Typography, colours, spacing, cards and buttons remain editable in the standard Dawn settings. Product service promises are blank until you supply them."
+      },
+      {
+        "type": "color",
+        "id": "fashion_sale_color",
+        "label": "Sale price color",
+        "default": "#17633F"
       }
     ]
   },
