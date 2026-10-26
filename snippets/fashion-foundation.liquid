@@ -5,6 +5,13 @@
   :root {
     --fashion-control-height: {{ settings.fashion_control_height | default: 48 }}px;
     --fashion-product-title-size: {{ settings.fashion_product_title_size | default: 32 }}px;
+    {%- if settings.heading_style == 'clean' -%}
+      --font-body-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-heading-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body-weight: 400;
+      --font-body-weight-bold: 700;
+      --font-heading-weight: 600;
+    {%- endif -%}
   }
 {% endstyle %}
 {% stylesheet %}
@@ -52,5 +59,37 @@
   @media screen and (max-width: 749px) {
     .luxelette-editorial .header__heading-link .h2 { font-size: 2.4rem; }
     .luxelette-editorial .banner__box { padding: 3.2rem 2rem; }
+  }
+  .luxelette-clean { font-size: 1.65rem; line-height: 1.65; letter-spacing: normal; }
+  .luxelette-clean h1, .luxelette-clean h2, .luxelette-clean h3, .luxelette-clean h4,
+  .luxelette-clean .h0, .luxelette-clean .h1, .luxelette-clean .h2, .luxelette-clean .h3, .luxelette-clean .h4, .luxelette-clean .hxl {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -.01em;
+  }
+  .luxelette-clean .banner__heading { font-size: clamp(3.2rem, 4.6vw, 5.2rem); line-height: 1.15; }
+  .luxelette-clean .banner__box { max-width: 58rem; border: 0; }
+  .luxelette-clean .banner__text { font-size: 1.65rem; line-height: 1.65; }
+  .luxelette-clean .rich-text__blocks { max-width: 68rem; }
+  .luxelette-clean .rte { line-height: 1.7; }
+  .luxelette-clean .product__description, .luxelette-clean .accordion__content { font-size: 1.65rem; }
+  .luxelette-clean .header__heading-link .h2 { font-size: 2.6rem; font-weight: 600; letter-spacing: .06em; text-transform: none; }
+  .luxelette-clean .header__menu-item, .luxelette-clean .footer-block__details-content .list-menu__item--link { font-size: 1.5rem; }
+  .luxelette-clean .button { font-size: 1.6rem; font-weight: 600; letter-spacing: .01em; line-height: 1.4; padding-block: 1.2rem; white-space: normal; }
+  .luxelette-clean .product__info-container .price--large { font-size: 2.4rem; font-weight: 600; font-variant-numeric: lining-nums; }
+  .luxelette-clean .card__heading { font-size: 1.65rem; font-weight: 500; line-height: 1.5; letter-spacing: normal; }
+  .luxelette-clean .card-information .price { font-size: 1.65rem; font-weight: 600; }
+  .luxelette-clean .product__tax, .luxelette-clean .installment, .luxelette-clean .product__inventory,
+  .luxelette-clean .cart__tax-note, .luxelette-clean .tax-note, .luxelette-clean .copyright__content { font-size: 1.4rem; line-height: 1.6; }
+  .luxelette-clean .caption-with-letter-spacing, .luxelette-clean .announcement-bar__message { font-size: 1.3rem; letter-spacing: .03em; line-height: 1.6; }
+  .luxelette-clean .field__input, .luxelette-clean .select__select { font-size: 1.6rem; }
+  .luxelette-clean .field__input:focus, .luxelette-clean .field__input:not(:placeholder-shown) { font-size: 1.6rem; }
+  @media screen and (min-width: 990px) { .luxelette-clean .banner__box { padding: 4.8rem; } }
+  @media screen and (max-width: 749px) {
+    .luxelette-clean .header__heading-link .h2 { font-size: 2.3rem; }
+    .luxelette-clean .banner__box { padding: 3.2rem 2rem; }
+    .luxelette-clean .rich-text__blocks { text-align: left; }
+    .luxelette-clean .card__heading, .luxelette-clean .card-information .price { font-size: 1.5rem; }
   }
 {% endstylesheet %}

@@ -81,11 +81,13 @@
     %}
 
     {% style %}
+      {%- unless settings.heading_style == 'clean' -%}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      {%- endunless -%}
 
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
@@ -299,12 +301,12 @@
       {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
-    {%- unless settings.type_body_font.system? -%}
+    {%- unless settings.type_body_font.system? or settings.heading_style == 'clean' -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
+    {%- unless settings.type_header_font.system? or settings.heading_style == 'clean' -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
@@ -333,7 +335,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.heading_style == 'editorial' %} luxelette-editorial{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"><main
+  <body class="gradient{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.heading_style == 'editorial' %} luxelette-editorial{% elsif settings.heading_style == 'clean' %} luxelette-clean{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"><main
       id="MainContent"
       class="content-for-layout focus-none"
       role="main"
@@ -343,4 +345,5 @@
       {{ content_for_layout }}
     </main></body>
 </html>
+
 

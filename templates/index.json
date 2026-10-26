@@ -71,7 +71,7 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "caption": "THE LUXELETTE POINT OF VIEW",
+            "caption": "The Luxelette point of view",
             "text_style": "caption-with-letter-spacing",
             "text_size": "small"
           }
@@ -195,7 +195,7 @@
         "anchor": {
           "type": "text",
           "settings": {
-            "text": "<p>A NOTE FROM LUXELETTE</p>"
+            "text": "<p>A note from Luxelette</p>"
           }
         },
         "heading": {
@@ -264,7 +264,7 @@
       "settings": {
         "heading": "Before you find your favorite",
         "heading_size": "h1",
-        "caption": "THE SHOPPING GUIDE",
+        "caption": "The shopping guide",
         "heading_alignment": "center",
         "layout": "none",
         "color_scheme": "scheme-1",
@@ -351,3 +351,4 @@
     "newsletter"
   ]
 }
+

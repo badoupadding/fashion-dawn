@@ -9,7 +9,7 @@ Use an unpublished theme until the store migration and preview checks below are 
 ## Already in this branch
 
 - Luxelette name in the header, footer, page titles, social metadata, password page and organization structured data.
-- Warm ivory and burgundy palette, editorial system-serif headings and readable body text.
+- Warm ivory and burgundy palette with a clean system-sans typeface for body text and headings. The default body size is approximately 18px, supporting text is larger, and controls have a 52px minimum height.
 - Bundled monogram favicon and an AI-generated lifestyle photograph optimized as a 209KB WebP. This is brand atmosphere, not a photograph of actual inventory. Replace it through the native hero image picker whenever desired; switch off the bundled image option to remove it.
 - Women's-fashion homepage with native image banner, brand introduction, category links, a guarded native featured collection, shopping guidance, FAQ and newsletter.
 - Starter navigation usable before store menus are created. Native menu `luxelette-main-menu` automatically replaces it when available.

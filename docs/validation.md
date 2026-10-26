@@ -1,5 +1,11 @@
 # Validation
 
+## Clean typography update
+
+The current Shopify-synced version is preserved, including the installed GemPages files and app embed. The typography change uses a clean system-sans option with stronger headings, readable secondary text and reduced letter spacing. Validation now accepts Shopify's leading JSON comment headers. An unsupported `raw` filter in the imported GemPages variant section was removed; the JSON string is output directly, as in native Shopify Liquid.
+
+The current full-tree Theme Check includes additional findings from imported app files. Its current result is zero errors; the previous nine-warning result below describes the pre-app build. Browser-level checks of the connected storefront remain necessary for real content and app-generated layouts.
+
 ## Luxelette branch
 
 The Luxelette branding and US women's-fashion configuration also pass Shopify Theme Check with zero errors and the same nine inherited Dawn warnings. Structural validation checks 49 native/custom section schemas, template settings and presets. A WebP lifestyle asset and SVG monogram are bundled; the hero image picker overrides the asset. No live-store settings were changed. The legacy catalog was inspected read-only to avoid featuring unrelated products. Store setup and acceptance are listed in [luxelette-launch.md](luxelette-launch.md).

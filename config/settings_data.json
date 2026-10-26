@@ -128,13 +128,13 @@
     "cart_color_scheme": "scheme-1",
     "customer_account_menu": "customer-account-main-menu",
     "fashion_enabled": true,
-    "fashion_control_height": 48,
+    "fashion_control_height": 52,
     "fashion_product_title_size": 32,
     "brand_display_name": "Luxelette",
     "brand_home_title": "Luxelette | Women’s Fashion for Your Everyday",
     "brand_home_description": "Discover women’s fashion with an effortless point of view. Explore dresses, knitwear, tops, and everyday layers at Luxelette.",
     "use_brand_favicon": true,
-    "heading_style": "editorial",
+    "heading_style": "clean",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -794,13 +794,13 @@
         }
       },
       "fashion_enabled": true,
-      "fashion_control_height": 48,
+      "fashion_control_height": 52,
       "fashion_product_title_size": 32,
       "brand_display_name": "Luxelette",
       "brand_home_title": "Luxelette | Women’s Fashion for Your Everyday",
       "brand_home_description": "Discover women’s fashion with an effortless point of view. Explore dresses, knitwear, tops, and everyday layers at Luxelette.",
       "use_brand_favicon": true,
-      "heading_style": "editorial"
+      "heading_style": "clean"
     },
     "Modern minimal": {
       "logo_width": 140,

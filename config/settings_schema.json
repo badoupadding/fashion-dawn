@@ -1530,7 +1530,7 @@
       {
         "type": "select",
         "id": "heading_style",
-        "label": "Heading style",
+        "label": "Typography style",
         "options": [
           {
             "value": "native",
@@ -1539,6 +1539,10 @@
           {
             "value": "editorial",
             "label": "Editorial system serif"
+          },
+          {
+            "value": "clean",
+            "label": "Clean system sans — clear reading"
           }
         ],
         "default": "native"

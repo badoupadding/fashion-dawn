@@ -9,7 +9,8 @@ errors = []
 
 def load(path):
     try:
-        return json.loads(path.read_text())
+        source = re.sub(r'\A\s*/\*.*?\*/\s*', '', path.read_text(), count=1, flags=re.S)
+        return json.loads(source)
     except (OSError, ValueError) as error:
         errors.append(f'{path.relative_to(ROOT)}: {error}')
         return {}

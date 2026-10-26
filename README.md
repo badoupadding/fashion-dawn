@@ -38,6 +38,8 @@ A reusable English-language Shopify theme with reading and interaction defaults 
 
 Use native theme settings for typography, colours, buttons, cards, grids and spacing. **Theme settings → Fashion essentials** controls the fashion styling, minimum control height and product heading size.
 
+Luxelette defaults to **Store branding → Typography style → Clean system sans**: readable system fonts, approximately 18px body text, clear medium-weight headings, larger prices and 52px minimum control height. This mode loads no additional font files. Choose Theme font to use the normal font pickers, or Editorial system serif to restore the earlier serif style. App-generated page content may have its own typography settings.
+
 The **Fashion editorial** section supports two independently editable image cards, text, links, alignment, heading size, colour scheme and spacing. Its heading defaults to H2 when added; the supplied homepage uses H1. Keep one main H1 per page.
 
 The **Service information** section supports up to four reorderable service blocks with icons, text and optional links. Add only promises that match that store's actual service.
