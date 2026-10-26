@@ -531,6 +531,9 @@
   "fashion": {
     "product": {
       "choose_options": "Choose options"
+    },
+    "brand": {
+      "hero_alt": "Two women enjoying an afternoon walk in warm, neutral outfits."
     }
   }
 }

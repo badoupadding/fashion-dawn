@@ -1,7 +1,7 @@
 name: Validate and package theme
 on:
   push:
-    branches: [main]
+    branches: [main, luxelette]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -29,5 +29,5 @@ jobs:
         run: python tools/package_theme.py
       - uses: actions/upload-artifact@v4
         with:
-          name: fashion-dawn
-          path: dist/fashion-dawn.zip
+          name: luxelette-theme
+          path: dist/*.zip

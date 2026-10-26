@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Discover the everyday edit",
+            "text": "LUXELETTE — STYLE FOR THE WAY YOU LIVE",
             "link": ""
           }
         }
@@ -31,22 +31,75 @@
       "settings": {
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
-        "logo_position": "middle-left",
-        "menu": "main-menu",
+        "logo_position": "middle-center",
+        "menu": "luxelette-main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
-        "enable_country_selector": true,
+        "enable_country_selector": false,
         "enable_language_selector": false,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 12,
         "padding_bottom": 12
       }
+    },
+    "navigation": {
+      "type": "fashion-navigation",
+      "settings": {
+        "label": "Luxelette shopping navigation",
+        "color_scheme": "scheme-1",
+        "replacement_menu": "luxelette-main-menu"
+      },
+      "blocks": {
+        "all": {
+          "type": "link",
+          "settings": {
+            "label": "Shop the edit",
+            "link": "/search?type=product&q=tag%3Aluxelette"
+          }
+        },
+        "dresses": {
+          "type": "link",
+          "settings": {
+            "label": "Dresses",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Adresses"
+          }
+        },
+        "knitwear": {
+          "type": "link",
+          "settings": {
+            "label": "Knitwear",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aknitwear"
+          }
+        },
+        "about": {
+          "type": "link",
+          "settings": {
+            "label": "Our story",
+            "link": "/#luxelette-story"
+          }
+        },
+        "help": {
+          "type": "link",
+          "settings": {
+            "label": "Shopping guide",
+            "link": "/#luxelette-faq"
+          }
+        }
+      },
+      "block_order": [
+        "all",
+        "dresses",
+        "knitwear",
+        "about",
+        "help"
+      ]
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "navigation"
   ]
 }

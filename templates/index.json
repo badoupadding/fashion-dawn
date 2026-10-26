@@ -1,185 +1,300 @@
 {
   "sections": {
-    "editorial": {
-      "type": "fashion-editorial",
+    "hero": {
+      "type": "image-banner",
       "settings": {
-        "eyebrow": "The everyday edit",
-        "heading": "Good style. Your way.",
+        "use_luxelette_image": true,
         "heading_tag": "h1",
-        "heading_size": "h0",
-        "text": "<p>Explore everyday favourites for her and for him.</p>",
-        "alignment": "left",
-        "color_scheme": "scheme-1",
-        "height": 540,
-        "spacing": 48
-      },
-      "blocks": {
-        "women": {
-          "type": "collection",
-          "settings": {
-            "title": "For her",
-            "label": "Shop women",
-            "eyebrow": "The women’s collection"
-          }
-        },
-        "men": {
-          "type": "collection",
-          "settings": {
-            "title": "For him",
-            "label": "Shop men",
-            "eyebrow": "The men’s collection"
-          }
-        }
-      },
-      "block_order": [
-        "women",
-        "men"
-      ]
-    },
-    "categories": {
-      "type": "collection-list",
-      "settings": {
-        "title": "Find your everyday favourites",
-        "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 48
-      },
-      "blocks": {
-        "category1": {
-          "type": "featured_collection",
-          "settings": {}
-        },
-        "category2": {
-          "type": "featured_collection",
-          "settings": {}
-        },
-        "category3": {
-          "type": "featured_collection",
-          "settings": {}
-        },
-        "category4": {
-          "type": "featured_collection",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "category1",
-        "category2",
-        "category3",
-        "category4"
-      ]
-    },
-    "women_edit": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "The women’s edit",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "men_edit": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "The men’s edit",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-2",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "story": {
-      "type": "image-with-text",
-      "settings": {
-        "height": "medium",
-        "layout": "image_first",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
+        "image_height": "large",
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "color_scheme": "scheme-2",
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "desktop_image_width": "medium"
+        "show_text_box": true,
+        "show_text_below": true,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "image_behavior": "none"
       },
       "blocks": {
-        "eyebrow": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Style that feels like you.",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "An effortless point of view. A little everyday elegance. Welcome to Luxelette.",
+            "text_style": "body"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore the edit",
+            "button_link_1": "/search?type=product&q=tag%3Aluxelette",
+            "button_style_secondary_1": false,
+            "button_label_2": "Our point of view",
+            "button_link_2": "#luxelette-story",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "buttons"
+      ]
+    },
+    "intro": {
+      "type": "rich-text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 40,
+        "content_alignment": "center",
+        "full_width": true
+      },
+      "blocks": {
+        "caption": {
           "type": "caption",
           "settings": {
-            "caption": "Your everyday wardrobe",
+            "caption": "THE LUXELETTE POINT OF VIEW",
             "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "text_size": "small"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "A wardrobe that feels like you.",
+            "heading": "Your style. Your chapter.",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>From relaxed mornings to evenings out, discover pieces to make your own.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Explore the collections",
-            "button_link": "shopify://collections",
-            "button_style_secondary": true
+            "text": "<p>Getting dressed should feel like you. Discover an approach to everyday style that leaves room for comfort, individuality, and a little occasion.</p>"
           }
         }
       },
       "block_order": [
-        "eyebrow",
+        "caption",
         "heading",
-        "text",
-        "button"
+        "text"
+      ]
+    },
+    "categories": {
+      "type": "fashion-reassurance",
+      "settings": {
+        "heading": "Find your next favorite",
+        "color_scheme": "scheme-2",
+        "padding": 40
+      },
+      "blocks": {
+        "dresses": {
+          "type": "service",
+          "settings": {
+            "heading": "Dresses",
+            "icon": "none",
+            "text": "<p>From everyday moments to plans worth dressing for.</p>",
+            "label": "Explore dresses",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Adresses"
+          }
+        },
+        "knitwear": {
+          "type": "service",
+          "settings": {
+            "heading": "Knitwear",
+            "icon": "none",
+            "text": "<p>An easy layer for a little everyday warmth.</p>",
+            "label": "Explore knitwear",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aknitwear"
+          }
+        },
+        "tops": {
+          "type": "service",
+          "settings": {
+            "heading": "Tops & blouses",
+            "icon": "none",
+            "text": "<p>A fresh starting point for your own combinations.</p>",
+            "label": "Explore tops & blouses",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Atops"
+          }
+        },
+        "outerwear": {
+          "type": "service",
+          "settings": {
+            "heading": "Jackets & layers",
+            "icon": "none",
+            "text": "<p>The finishing touch to make a look your own.</p>",
+            "label": "Explore jackets & layers",
+            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aouterwear"
+          }
+        }
+      },
+      "block_order": [
+        "dresses",
+        "knitwear",
+        "tops",
+        "outerwear"
+      ]
+    },
+    "edit": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "The Luxelette edit",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "collection": "luxelette",
+        "hide_until_collection_selected": true
+      }
+    },
+    "story": {
+      "type": "rich-text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "content_alignment": "center",
+        "full_width": true,
+        "anchor_id": "luxelette-story"
+      },
+      "blocks": {
+        "anchor": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A NOTE FROM LUXELETTE</p>"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "A little elegance. A lot of you.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Style isn’t about becoming someone else. It’s about feeling at home in who you are.</p><p>Luxelette is a women’s fashion destination with a simple point of view: leave room for your own taste. Dress for the life you live, the moments you enjoy, and the person you are today.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "anchor",
+        "heading",
+        "text"
+      ]
+    },
+    "guidance": {
+      "type": "fashion-reassurance",
+      "settings": {
+        "heading": "A little help along the way",
+        "color_scheme": "scheme-2",
+        "padding": 32
+      },
+      "blocks": {
+        "size": {
+          "type": "service",
+          "settings": {
+            "heading": "Start with the fit",
+            "icon": "ruler",
+            "text": "<p>Check the measurements and fit notes on each product before choosing your size.</p>",
+            "link": "#luxelette-faq",
+            "label": "Read the shopping guide"
+          }
+        },
+        "details": {
+          "type": "service",
+          "settings": {
+            "heading": "Look at the details",
+            "icon": "check_mark",
+            "text": "<p>Review product descriptions for the available fabric, care, and fit information.</p>"
+          }
+        },
+        "checkout": {
+          "type": "service",
+          "settings": {
+            "heading": "Review before you order",
+            "icon": "check_mark",
+            "text": "<p>Confirm your selections and review the available delivery options at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "size",
+        "details",
+        "checkout"
+      ]
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "Before you find your favorite",
+        "heading_size": "h1",
+        "caption": "THE SHOPPING GUIDE",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "anchor_id": "luxelette-faq"
+      },
+      "blocks": {
+        "size": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I choose my size?",
+            "icon": "ruler",
+            "row_content": "<p>Use the measurements and fit information supplied for each item. Sizing can vary between styles, so compare the product’s measurements with a similar item you already own. When a size chart is available, review it before ordering.</p>"
+          }
+        },
+        "fabric": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where can I find fabric and care information?",
+            "icon": "shirt",
+            "row_content": "<p>Review the product description for the information available for that style. Once your item arrives, follow the care label attached to the garment.</p>"
+          }
+        },
+        "delivery": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I review before checkout?",
+            "icon": "check_mark",
+            "row_content": "<p>Check your chosen color, size, quantity, and shipping address. Review the store’s current shipping and return policies before placing an order. Available shipping methods and charges are shown during checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "size",
+        "fabric",
+        "delivery"
       ]
     },
     "newsletter": {
@@ -194,14 +309,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Keep good company.",
+            "heading": "A little Luxelette in your inbox.",
             "heading_size": "h1"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>New arrivals, styling inspiration and a little something for your inbox.</p>"
+            "text": "<p>Sign up for collection updates, style notes, and new things to discover.</p>"
           }
         },
         "email": {
@@ -217,11 +332,13 @@
     }
   },
   "order": [
-    "editorial",
+    "hero",
+    "intro",
     "categories",
-    "women_edit",
-    "men_edit",
+    "edit",
     "story",
+    "guidance",
+    "faq",
     "newsletter"
   ]
 }

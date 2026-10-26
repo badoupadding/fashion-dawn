@@ -1,6 +1,14 @@
-# Fashion Dawn
+# Luxelette
 
-A reusable English-language Shopify theme for women's and men's fashion, with reading and interaction defaults designed for a 45+ audience. Built on Shopify Dawn 16.0.0, source tree `05222537f672cc0e8ae8aa3ac07808b9cfc34742`.
+This is the **`luxelette` branch**: the ready-to-configure US women's-fashion version for **luxelette.com**. Connect this branch in Shopify. Start with the [Luxelette launch guide](docs/luxelette-launch.md), which distinguishes what is bundled from the remaining store settings.
+
+Luxelette branding, homepage copy, editorial imagery, monogram, navigation and About/Contact/FAQ templates are included. Shopify products, pages, menus, domain, USD, policies and app configuration must be set in the store. The homepage does not feature the existing store's men's catalog.
+
+The **`main` branch** remains the reusable Fashion Dawn base described below.
+
+## Fashion Dawn base
+
+A reusable English-language Shopify theme with reading and interaction defaults designed for a 45+ audience. Built on Shopify Dawn 16.0.0, source tree `05222537f672cc0e8ae8aa3ac07808b9cfc34742`. The base features below remain available as editor sections; the Luxelette homepage is configured for women only.
 
 ## What is included
 
@@ -17,12 +25,12 @@ A reusable English-language Shopify theme for women's and men's fashion, with re
 
 ## Use on a Shopify store
 
-1. In **Online Store → Themes → Add theme → Connect from GitHub**, choose this repository and the `main` branch. Alternatively upload `dist/fashion-dawn.zip` built by the packaging script or downloaded from Actions.
+1. In **Online Store → Themes → Add theme → Connect from GitHub**, choose this repository and the `luxelette` branch. Alternatively upload `dist/luxelette.zip` built by the packaging script or downloaded from Actions.
 2. Keep it as an unpublished theme while configuring and testing.
 3. Open the theme editor. Add the store's logo and favicon, choose fonts and colours, and configure the homepage images and links. Resource selections are intentionally empty so one store's collection handles are not reused accidentally.
-4. Create women, men and category collections in Shopify. Select them in the homepage collection sections. The women's and men's edit sections must each be assigned their own collection; until then Dawn displays placeholders.
-5. Configure Shopify navigation menus: **main-menu** for shop navigation and **footer** for help links. Create contact and about pages with your own brand content.
-6. In Shopify Markets enable the **United Kingdom / GBP** and **United States / USD** markets. Prices and country selectors use Shopify's market context. The theme does not activate markets, set tax rules, calculate shipping or create payment methods.
+4. Create the women's collections and tags described in the Luxelette launch guide. The native featured collection stays hidden until a populated collection is selected.
+5. Configure Shopify navigation menus: **luxelette-main-menu** for shop navigation and **luxelette-footer** for help links. Create the About, Contact and FAQ pages and assign their prepared templates.
+6. Configure the **United States / USD** market and currency in Shopify. Prices use Shopify's market context. The theme does not activate markets, change the store currency, set tax rules, calculate shipping or create payment methods.
 7. Add real policies in Shopify when ready. Set delivery and returns content in the product information blocks and/or add a Service information section. No shipping speed, free return or guarantee promises are prefilled.
 8. Test an unpublished preview using real products, variants and images before publishing.
 

@@ -4,7 +4,7 @@ import zipfile
 root = pathlib.Path(__file__).resolve().parents[1]
 output = root / 'dist'
 output.mkdir(exist_ok=True)
-destination = output / 'fashion-dawn.zip'
+destination = output / 'luxelette.zip'
 with zipfile.ZipFile(destination, 'w', zipfile.ZIP_DEFLATED) as archive:
     for directory in ('assets', 'blocks', 'config', 'layout', 'locales', 'sections', 'snippets', 'templates'):
         for path in sorted((root / directory).rglob('*')):

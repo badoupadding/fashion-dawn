@@ -1,8 +1,8 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Fashion Dawn",
-    "theme_version": "1.0.0",
+    "theme_name": "Luxelette",
+    "theme_version": "1.1.0",
     "theme_author": "Fashion Dawn",
     "theme_documentation_url": "https://github.com/badoupadding/fashion-dawn",
     "theme_support_url": "https://github.com/badoupadding/fashion-dawn/issues"
@@ -1499,6 +1499,49 @@
       {
         "type": "paragraph",
         "content": "Typography, colours, spacing, cards and buttons remain editable in the standard Dawn settings. Product service promises are blank until you supply them."
+      }
+    ]
+  },
+  {
+    "name": "Store branding",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_display_name",
+        "label": "Storefront brand name",
+        "info": "Overrides the visible theme name. Rename the store separately in Shopify settings."
+      },
+      {
+        "type": "text",
+        "id": "brand_home_title",
+        "label": "Homepage search title"
+      },
+      {
+        "type": "textarea",
+        "id": "brand_home_description",
+        "label": "Homepage search description"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_favicon",
+        "label": "Use bundled Luxelette monogram when no favicon is selected",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "heading_style",
+        "label": "Heading style",
+        "options": [
+          {
+            "value": "native",
+            "label": "Theme font"
+          },
+          {
+            "value": "editorial",
+            "label": "Editorial system serif"
+          }
+        ],
+        "default": "native"
       }
     ]
   }

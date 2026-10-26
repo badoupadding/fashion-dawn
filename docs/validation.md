@@ -1,5 +1,9 @@
 # Validation
 
+## Luxelette branch
+
+The Luxelette branding and US women's-fashion configuration also pass Shopify Theme Check with zero errors and the same nine inherited Dawn warnings. Structural validation checks 49 native/custom section schemas, template settings and presets. A WebP lifestyle asset and SVG monogram are bundled; the hero image picker overrides the asset. No live-store settings were changed. The legacy catalog was inspected read-only to avoid featuring unrelated products. Store setup and acceptance are listed in [luxelette-launch.md](luxelette-launch.md).
+
 ## Build checks
 
 - Shopify CLI 4.8.3 Theme Check: zero errors. Nine warnings remain in inherited Dawn code (variable naming, unused assignments, undefined-object analysis, one orphaned snippet and facets complexity). No warnings were reported in the new fashion snippets or sections.

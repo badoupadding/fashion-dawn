@@ -15,16 +15,26 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {%- liquid
+      assign storefront_name = settings.brand_display_name | default: shop.name
+      assign storefront_title = page_title | replace: shop.name, storefront_name
+      assign storefront_description = page_description
+      if request.page_type == 'index'
+        assign storefront_title = settings.brand_home_title | default: storefront_title
+        assign storefront_description = settings.brand_home_description | default: storefront_description
+      endif
+    -%}
     <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {{- storefront_title | escape -}}
+      {%- unless storefront_title contains storefront_name %} &ndash; {{ storefront_name | escape }}{% endunless -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.pagination.page' | t: number: current_page }}{% endif -%}
     </title>
-
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- if storefront_description != blank -%}
+      <meta name="description" content="{{ storefront_description | escape }}">
+    {%- endif -%}
+    {%- if settings.favicon == blank and settings.use_brand_favicon -%}
+      <link rel="icon" type="image/svg+xml" href="{{ 'luxelette-monogram.svg' | asset_url }}">
+    {%- endif -%}
 
     {% render 'meta-tags' %}
 
@@ -323,7 +333,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.heading_style == 'editorial' %} luxelette-editorial{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

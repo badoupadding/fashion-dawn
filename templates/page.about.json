@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "heading_tag": "h1"
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "A little elegance. A lot of you.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to Luxelette — women’s fashion with an effortless point of view.</p><p>We believe personal style belongs to you. It can be relaxed, polished, understated, expressive, or a little of everything. It should make room for the person you are today.</p><p>Our point of view is simple: dress for the life you live. Explore your favorites, notice the details, and make every look your own.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
