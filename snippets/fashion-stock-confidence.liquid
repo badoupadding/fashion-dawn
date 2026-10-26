@@ -1,0 +1,37 @@
+{% doc %}
+  Variant-aware stock and sale information, refreshed by Dawn product-info.
+  @param {product} product - Product being purchased.
+  @param {object} block - Inventory block settings.
+  @param {string} section_id - Product section identifier.
+{% enddoc %}
+{%- assign selected = product.selected_or_first_available_variant -%}
+<p class="product__inventory confidence-stock" id="Inventory-{{ section_id }}" role="status" {{ block.shopify_attributes }}>
+  {%- if selected.available == false -%}
+    {{ 'products.product.inventory_out_of_stock' | t }}
+  {%- elsif selected.inventory_management == 'shopify' -%}
+    {%- if selected.inventory_quantity > 0 and selected.inventory_policy == 'deny' and selected.inventory_quantity <= block.settings.inventory_threshold -%}
+      <span class="confidence-stock__dot" aria-hidden="true"></span>
+      {%- if block.settings.show_inventory_quantity -%}
+        {{ 'products.product.inventory_low_stock_show_count' | t: quantity: selected.inventory_quantity }}
+      {%- else -%}
+        {{ 'products.product.inventory_low_stock' | t }}
+      {%- endif -%}
+      {%- if selected.compare_at_price > selected.price and block.settings.sale_message != blank -%}
+        <span class="confidence-stock__sale">{{ block.settings.sale_message | escape }}</span>
+      {%- endif -%}
+    {%- elsif selected.inventory_quantity <= 0 -%}
+      {{ 'products.product.inventory_out_of_stock_continue_selling' | t }}
+    {%- else -%}
+      {{ 'products.product.inventory_in_stock' | t }}
+    {%- endif -%}
+  {%- elsif block.settings.confirm_untracked_stock and block.settings.untracked_message != blank -%}
+    <span class="confidence-stock__dot" aria-hidden="true"></span>{{ block.settings.untracked_message | escape }}
+  {%- else -%}
+    {{ 'products.product.inventory_in_stock' | t }}
+  {%- endif -%}
+</p>
+{% stylesheet %}
+  .confidence-stock { font-size: 1.5rem; line-height: 1.5; color: #71451d; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .7rem; }
+  .confidence-stock__dot { display: inline-block; width: .8rem; height: .8rem; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .confidence-stock__sale { flex-basis: 100%; }
+{% endstylesheet %}

@@ -136,56 +136,9 @@
                     {%- endform -%}
                   </div>
                 {%- when 'inventory' -%}
-                  <p
-                    class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
-                    {{ block.shopify_attributes }}
-                    id="Inventory-{{ section.id }}"
-                    role="status"
-                  >
-                    {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                      {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
-                        {%- if product.selected_or_first_available_variant.inventory_quantity
-                            <= block.settings.inventory_threshold
-                        -%}
-                          <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
-                          {%- if block.settings.show_inventory_quantity -%}
-                            {{-
-                              'products.product.inventory_low_stock_show_count'
-                              | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                            -}}
-                          {%- else -%}
-                            {{- 'products.product.inventory_low_stock' | t -}}
-                          {%- endif -%}
-                        {%- else -%}
-                          <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
-                          {%- if block.settings.show_inventory_quantity -%}
-                            {{-
-                              'products.product.inventory_in_stock_show_count'
-                              | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                            -}}
-                          {%- else -%}
-                            {{- 'products.product.inventory_in_stock' | t -}}
-                          {%- endif -%}
-                        {%- endif -%}
-                      {%- else -%}
-                        {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                          <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
-                          {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
-                        {%- else -%}
-                          <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
-                          {{- 'products.product.inventory_out_of_stock' | t -}}
-                        {%- endif -%}
-                      {%- endif -%}
-                    {%- endif -%}
-                  </p>
+                  {% render 'fashion-stock-confidence', product: product, block: block, section_id: section.id %}
+                {%- when 'fashion_checkout_trust' -%}
+                  {% render 'fashion-checkout-trust', block: block %}
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
                     {%- if section.settings.fashion_description_accordion -%}
@@ -874,6 +827,25 @@
           "id": "show_inventory_quantity",
           "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
           "default": true
+        },
+        {
+          "type": "text",
+          "id": "sale_message",
+          "label": "Sale message for low tracked stock",
+          "default": "Sale ends when sold out."
+        },
+        {
+          "type": "checkbox",
+          "id": "confirm_untracked_stock",
+          "label": "Confirm limited stock for untracked variants",
+          "default": false,
+          "info": "Enable only while actual supplier stock is limited. Tracked variants always use Shopify inventory."
+        },
+        {
+          "type": "text",
+          "id": "untracked_message",
+          "label": "Confirmed limited stock message",
+          "default": "Limited stock \u2014 sale ends when sold out."
         }
       ]
     },
@@ -2268,6 +2240,36 @@
           "id": "show_payments",
           "label": "Show enabled payment methods",
           "default": true
+        }
+      ]
+    },
+    {
+      "type": "fashion_checkout_trust",
+      "name": "Checkout reassurance",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "secure_label",
+          "label": "Secure checkout label",
+          "default": "Secure checkout"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payments",
+          "label": "Show enabled payment methods",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "contact_label",
+          "label": "Contact label",
+          "default": "Questions before ordering? Contact us"
+        },
+        {
+          "type": "url",
+          "id": "contact_url",
+          "label": "Contact page"
         }
       ]
     }

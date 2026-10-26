@@ -56,15 +56,28 @@
             "label": "Size guide"
           }
         },
-        "purchase_info": {
-          "type": "fashion_purchase_info",
-          "settings": {
-            "show_policies": true,
-            "show_payments": true
-          }
-        },
         "rating": {
           "type": "rating"
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 5,
+            "show_inventory_quantity": true,
+            "sale_message": "Sale ends when sold out.",
+            "confirm_untracked_stock": true,
+            "untracked_message": "Limited stock \u2014 sale ends when sold out."
+          }
+        },
+        "checkout_trust": {
+          "type": "fashion_checkout_trust",
+          "settings": {
+            "secure_label": "Secure checkout",
+            "show_payments": true,
+            "contact_label": "Questions before ordering? Contact us",
+            "contact_url": "shopify://pages/contact"
+          }
         }
       },
       "block_order": [
@@ -75,8 +88,9 @@
         "variant_picker",
         "size_guide",
         "fit",
+        "inventory",
         "buy_buttons",
-        "purchase_info",
+        "checkout_trust",
         "service",
         "description"
       ],
