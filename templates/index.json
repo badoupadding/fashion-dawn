@@ -20,25 +20,25 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Find your everyday favorites.",
+            "heading": "Everyday style, for cooler days.",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Explore dresses, knitwear, and easy layers. Make the look your own.",
+            "text": "Discover winter outerwear, classic Mary Janes, and everyday loafers.",
             "text_style": "body"
           }
         },
         "buttons": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop the collection",
-            "button_link_1": "/search?type=product&q=tag%3Aluxelette",
+            "button_label_1": "Shop outerwear",
+            "button_link_1": "shopify://collections/winter-outerwear",
             "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
+            "button_label_2": "Shop shoes",
+            "button_link_2": "shopify://collections/mary-janes-classic-loafers",
             "button_style_secondary_2": true
           }
         }
@@ -48,83 +48,6 @@
         "text",
         "buttons"
       ]
-    },
-    "categories": {
-      "type": "fashion-collection-tiles",
-      "settings": {
-        "heading": "Shop by category",
-        "color_scheme": "scheme-1",
-        "spacing": 32
-      },
-      "blocks": {
-        "dresses": {
-          "type": "category",
-          "settings": {
-            "title": "Dresses",
-            "collection": "dresses",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Adresses"
-          }
-        },
-        "knitwear": {
-          "type": "category",
-          "settings": {
-            "title": "Knitwear",
-            "collection": "knitwear",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aknitwear"
-          }
-        },
-        "tops": {
-          "type": "category",
-          "settings": {
-            "title": "Tops & blouses",
-            "collection": "tops",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Atops"
-          }
-        },
-        "outerwear": {
-          "type": "category",
-          "settings": {
-            "title": "Jackets & layers",
-            "collection": "outerwear",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aouterwear"
-          }
-        }
-      },
-      "block_order": [
-        "dresses",
-        "knitwear",
-        "tops",
-        "outerwear"
-      ]
-    },
-    "edit": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "The Luxelette edit",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "padding_top": 32,
-        "padding_bottom": 24,
-        "collection": "luxelette",
-        "hide_until_collection_selected": true
-      }
     },
     "story": {
       "type": "rich-text",
@@ -153,7 +76,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Luxelette is about finding pieces that feel like you. Explore your own mix of everyday style, easy layers, and a little occasion.</p>"
+            "text": "<p>Luxelette is about finding pieces that feel like you. Discover your own mix of winter layers and classic footwear.</p>"
           }
         }
       },
@@ -242,12 +165,70 @@
         "paragraph",
         "email"
       ]
+    },
+    "outerwear": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Winter Outerwear",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 26,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "collection": "winter-outerwear",
+        "hide_until_collection_selected": true
+      }
+    },
+    "footwear": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Mary Janes & Classic Loafers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "collection": "mary-janes-classic-loafers",
+        "hide_until_collection_selected": true
+      }
     }
   },
   "order": [
     "hero",
-    "edit",
-    "categories",
+    "outerwear",
+    "footwear",
     "story",
     "faq",
     "newsletter"

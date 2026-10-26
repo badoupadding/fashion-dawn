@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -61,25 +52,18 @@
         "replacement_menu": "luxelette-main-menu"
       },
       "blocks": {
-        "all": {
+        "outerwear": {
           "type": "link",
           "settings": {
-            "label": "Shop the edit",
-            "link": "/search?type=product&q=tag%3Aluxelette"
+            "label": "Winter Outerwear",
+            "link": "shopify://collections/winter-outerwear"
           }
         },
-        "dresses": {
+        "footwear": {
           "type": "link",
           "settings": {
-            "label": "Dresses",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Adresses"
-          }
-        },
-        "knitwear": {
-          "type": "link",
-          "settings": {
-            "label": "Knitwear",
-            "link": "/search?type=product&q=tag%3Aluxelette%20AND%20tag%3Aknitwear"
+            "label": "Mary Janes & Loafers",
+            "link": "shopify://collections/mary-janes-classic-loafers"
           }
         },
         "about": {
@@ -95,14 +79,21 @@
             "label": "Shopping guide",
             "link": "/#luxelette-faq"
           }
+        },
+        "contact": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "shopify://pages/contact"
+          }
         }
       },
       "block_order": [
-        "all",
-        "dresses",
-        "knitwear",
+        "outerwear",
+        "footwear",
         "about",
-        "help"
+        "help",
+        "contact"
       ]
     }
   },
@@ -112,4 +103,3 @@
     "navigation"
   ]
 }
-
