@@ -52,6 +52,10 @@ for path in (ROOT / 'sections').glob('*.liquid'):
         continue
     try:
         sections[path.stem] = json.loads(schemas[0])
+        for item in [sections[path.stem], *sections[path.stem].get('blocks', [])]:
+            name = item.get('name', '')
+            if not name.startswith('t:') and len(name) > 25:
+                errors.append(f'{path.name}: schema name exceeds 25 characters: {name!r}')
     except ValueError as error:
         errors.append(f'{path.name}: {error}')
 
