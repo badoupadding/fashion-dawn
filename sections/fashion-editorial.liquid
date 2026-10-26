@@ -1,0 +1,89 @@
+{%- liquid
+  assign image_loading = 'lazy'
+  assign image_priority = 'auto'
+  if section.index == 1
+    assign image_loading = 'eager'
+    assign image_priority = 'high'
+  endif
+-%}
+<div class="fashion-editorial color-{{ section.settings.color_scheme }} gradient" style="--editorial-height: {{ section.settings.height }}px; --editorial-space: {{ section.settings.spacing }}px">
+  <div class="page-width">
+    <div class="fashion-editorial__intro {{ section.settings.alignment }}">
+      {%- if section.settings.eyebrow != blank -%}<p class="fashion-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<{{ section.settings.heading_tag }} class="fashion-editorial__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</{{ section.settings.heading_tag }}>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="rte fashion-editorial__text">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+    <div class="fashion-editorial__grid">
+      {%- for block in section.blocks -%}
+        <div class="fashion-editorial__card" {{ block.shopify_attributes }}>
+          <div class="fashion-editorial__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: image_loading, fetchpriority: image_priority, sizes: '(min-width: 750px) 50vw, 100vw', widths: '375, 550, 750, 1000, 1300, 1600', class: 'fashion-editorial__image' }}
+            {%- else -%}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'fashion-editorial__image placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <div class="fashion-editorial__caption">
+            <div>
+              {%- if block.settings.eyebrow != blank -%}<p class="fashion-eyebrow">{{ block.settings.eyebrow | escape }}</p>{%- endif -%}
+              {%- if block.settings.title != blank -%}<h2 class="h2">{{ block.settings.title | escape }}</h2>{%- endif -%}
+            </div>
+            {%- if block.settings.link != blank and block.settings.label != blank -%}
+              <a class="button button--secondary" href="{{ block.settings.link }}">{{ block.settings.label | escape }}<span aria-hidden="true">&nbsp;↗</span></a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% stylesheet %}
+  .fashion-editorial { padding-block: var(--editorial-space); }
+  .fashion-editorial__intro { max-width: 78rem; margin-bottom: 3.2rem; }
+  .fashion-editorial__intro.center { margin-inline: auto; }
+  .fashion-editorial__intro.right { margin-left: auto; }
+  .fashion-editorial__heading { margin: 1rem 0; text-wrap: balance; }
+  .fashion-editorial__text { max-width: 60rem; }
+  .center .fashion-editorial__text { margin-inline: auto; }
+  .fashion-editorial__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; }
+  .fashion-editorial__media { height: var(--editorial-height); overflow: hidden; background: rgba(var(--color-foreground), .04); }
+  .fashion-editorial__image { width: 100%; height: 100%; object-fit: cover; object-position: var(--focal-point, center); display: block; }
+  .fashion-editorial__caption { display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; padding-top: 2rem; }
+  .fashion-editorial__caption h2, .fashion-editorial__caption p { margin: 0; }
+  .fashion-editorial__caption .button { flex-shrink: 0; }
+  .fashion-eyebrow { font-size: 1.3rem; text-transform: uppercase; letter-spacing: .13em; line-height: 1.6; }
+  @media screen and (max-width: 749px) {
+    .fashion-editorial__grid { grid-template-columns: 1fr; gap: 3.2rem; }
+    .fashion-editorial__media { height: auto; aspect-ratio: 4 / 5; max-height: var(--editorial-height); }
+    .fashion-editorial__caption { flex-wrap: wrap; }
+  }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Fashion editorial",
+  "tag": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "max_blocks": 2,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The everyday edit" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Good style. Your way." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "options": [{"value":"h1","label":"H1 — page title"},{"value":"h2","label":"H2 — section title"}], "default": "h2" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "options": [{"value":"h1","label":"Medium"},{"value":"h0","label":"Large"},{"value":"hxl","label":"Extra large"}], "default": "h0" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Discover your next everyday favourites.</p>" },
+    { "type": "text_alignment", "id": "alignment", "label": "Text alignment", "default": "left" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Colour scheme", "default": "scheme-1" },
+    { "type": "range", "id": "height", "label": "Image height on desktop", "min": 300, "max": 800, "step": 20, "unit": "px", "default": 540 },
+    { "type": "range", "id": "spacing", "label": "Section spacing", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 }
+  ],
+  "blocks": [{
+    "type": "collection", "name": "Collection card", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+      { "type": "text", "id": "title", "label": "Title", "default": "The collection" },
+      { "type": "text", "id": "label", "label": "Link label", "default": "Explore" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ]
+  }],
+  "presets": [{ "name": "Fashion editorial", "blocks": [{"type":"collection","settings":{"title":"For her","label":"Shop women"}},{"type":"collection","settings":{"title":"For him","label":"Shop men"}}] }]
+}
+{% endschema %}

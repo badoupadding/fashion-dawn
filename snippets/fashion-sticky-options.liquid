@@ -1,0 +1,51 @@
+{% doc %}
+  Renders a mobile link to the native product options without duplicating checkout state.
+  @param {object} product - The product being viewed.
+  @param {string} section_id - The main product section ID.
+  @param {string} color_scheme - The main product section colour scheme.
+{% enddoc %}
+<fashion-sticky-options class="fashion-sticky-options color-{{ color_scheme }} gradient" data-section-id="{{ section_id }}" hidden>
+  <div class="fashion-sticky-options__inner">
+    <span class="fashion-sticky-options__title">{{ product.title | escape }}</span>
+    <a class="button" href="#ProductInfo-{{ section_id }}">{{ 'fashion.product.choose_options' | t }}</a>
+  </div>
+</fashion-sticky-options>
+{% stylesheet %}
+  .fashion-sticky-options { display: none; }
+  @media screen and (max-width: 749px) {
+    .fashion-sticky-options:not([hidden]) { display: block; position: fixed; z-index: 3; bottom: 0; inset-inline: 0; border-top: .1rem solid rgba(var(--color-foreground), .16); padding: 1.2rem 1.6rem max(1.2rem, env(safe-area-inset-bottom)); background: rgb(var(--color-background)); }
+    .fashion-sticky-options__inner { display: flex; gap: 1.2rem; align-items: center; }
+    .fashion-sticky-options__title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1.4rem; }
+    .fashion-sticky-options .button { flex-shrink: 0; padding-inline: 1.6rem; }
+    body:has(.fashion-sticky-options:not([hidden])) { padding-bottom: 9rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+{% endstylesheet %}
+{% javascript %}
+  if (!customElements.get('fashion-sticky-options')) {
+    customElements.define('fashion-sticky-options', class extends HTMLElement {
+      connectedCallback() {
+        this.productSection = document.getElementById(`MainProduct-${this.dataset.sectionId}`);
+        if (!this.productSection || !('IntersectionObserver' in window)) return;
+        this.observer = new IntersectionObserver(([entry]) => {
+          this.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
+        });
+        this.observer.observe(this.productSection);
+        this.onClick = (event) => {
+          event.preventDefault();
+          const info = document.getElementById(`ProductInfo-${this.dataset.sectionId}`);
+          const target = info?.querySelector('variant-selects') || info;
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'instant', block: 'center' });
+          const input = target.querySelector('input:checked:not(:disabled), select, button:not(:disabled)');
+          input?.focus({ preventScroll: true });
+        };
+        this.querySelector('a').addEventListener('click', this.onClick);
+      }
+      disconnectedCallback() {
+        this.observer?.disconnect();
+        this.querySelector('a')?.removeEventListener('click', this.onClick);
+      }
+    });
+  }
+{% endjavascript %}

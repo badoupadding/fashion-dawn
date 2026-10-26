@@ -1,0 +1,33 @@
+name: Validate and package theme
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  theme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate template settings and presets
+        run: python tools/validate_theme.py
+      - name: Test mobile options navigation
+        run: node --test tests/*.test.cjs
+      - name: Install Shopify CLI
+        run: npm install --global @shopify/cli@4.8.3
+      - name: Check Liquid and theme assets
+        run: shopify theme check --fail-level error
+      - name: Package uploadable theme
+        run: python tools/package_theme.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fashion-dawn
+          path: dist/fashion-dawn.zip

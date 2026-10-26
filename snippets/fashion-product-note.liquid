@@ -1,0 +1,22 @@
+{% doc %}
+  Renders an optional merchant-managed product information block.
+  @param {object} block - The product section block.
+{% enddoc %}
+{%- if block.settings.heading != blank or block.settings.text != blank -%}
+  <div class="fashion-product-note" {{ block.shopify_attributes }}>
+    {%- if block.settings.icon != 'none' -%}{% render 'icon-accordion', icon: block.settings.icon %}{%- endif -%}
+    <div>
+      {%- if block.settings.heading != blank -%}<h2 class="h4">{{ block.settings.heading | escape }}</h2>{%- endif -%}
+      {%- if block.settings.text != blank -%}<div class="rte">{{ block.settings.text }}</div>{%- endif -%}
+      {%- if block.settings.link != blank and block.settings.label != blank -%}<a class="link" href="{{ block.settings.link }}">{{ block.settings.label | escape }}</a>{%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+{% stylesheet %}
+  .fashion-product-note { display: flex; gap: 1.2rem; padding: 1.6rem; background: rgba(var(--color-foreground), .035); border: .1rem solid rgba(var(--color-foreground), .12); }
+  .fashion-product-note .icon { height: 2rem; width: 2rem; flex-shrink: 0; margin-top: .4rem; }
+  .fashion-product-note h2 { margin: 0 0 .4rem; }
+  .fashion-product-note .rte { font-size: 1.5rem; line-height: 1.65; }
+  .fashion-product-note .rte p { margin-block: 0 .4rem; }
+  .fashion-product-note .link { display: inline-block; padding-block: .6rem; }
+{% endstylesheet %}

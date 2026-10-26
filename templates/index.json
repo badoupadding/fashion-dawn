@@ -1,0 +1,227 @@
+{
+  "sections": {
+    "editorial": {
+      "type": "fashion-editorial",
+      "settings": {
+        "eyebrow": "The everyday edit",
+        "heading": "Good style. Your way.",
+        "heading_tag": "h1",
+        "heading_size": "h0",
+        "text": "<p>Explore everyday favourites for her and for him.</p>",
+        "alignment": "left",
+        "color_scheme": "scheme-1",
+        "height": 540,
+        "spacing": 48
+      },
+      "blocks": {
+        "women": {
+          "type": "collection",
+          "settings": {
+            "title": "For her",
+            "label": "Shop women",
+            "eyebrow": "The women’s collection"
+          }
+        },
+        "men": {
+          "type": "collection",
+          "settings": {
+            "title": "For him",
+            "label": "Shop men",
+            "eyebrow": "The men’s collection"
+          }
+        }
+      },
+      "block_order": [
+        "women",
+        "men"
+      ]
+    },
+    "categories": {
+      "type": "collection-list",
+      "settings": {
+        "title": "Find your everyday favourites",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 48
+      },
+      "blocks": {
+        "category1": {
+          "type": "featured_collection",
+          "settings": {}
+        },
+        "category2": {
+          "type": "featured_collection",
+          "settings": {}
+        },
+        "category3": {
+          "type": "featured_collection",
+          "settings": {}
+        },
+        "category4": {
+          "type": "featured_collection",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "category1",
+        "category2",
+        "category3",
+        "category4"
+      ]
+    },
+    "women_edit": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "The women’s edit",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "men_edit": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "The men’s edit",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "height": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "desktop_image_width": "medium"
+      },
+      "blocks": {
+        "eyebrow": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your everyday wardrobe",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "A wardrobe that feels like you.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From relaxed mornings to evenings out, discover pieces to make your own.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore the collections",
+            "button_link": "shopify://collections",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "text",
+        "button"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Keep good company.",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>New arrivals, styling inspiration and a little something for your inbox.</p>"
+          }
+        },
+        "email": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email"
+      ]
+    }
+  },
+  "order": [
+    "editorial",
+    "categories",
+    "women_edit",
+    "men_edit",
+    "story",
+    "newsletter"
+  ]
+}
