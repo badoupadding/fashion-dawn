@@ -1,0 +1,27 @@
+{% doc %}
+  Configurable checkout reassurance using the store's enabled payment methods.
+  @param {object} block - Product block settings.
+{% enddoc %}
+<div class="confidence-trust" {{ block.shopify_attributes }}>
+  {%- if block.settings.secure_label != blank -%}
+    <p class="confidence-trust__secure"><span aria-hidden="true">{{ 'icon-lock.svg' | inline_asset_content }}</span>{{ block.settings.secure_label | escape }}</p>
+  {%- endif -%}
+  {%- if block.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
+    <ul class="confidence-trust__payments list-unstyled" role="list">
+      {%- for type in shop.enabled_payment_types -%}
+        <li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+  {%- if block.settings.contact_url != blank and block.settings.contact_label != blank -%}
+    <a class="link underlined-link confidence-trust__contact" href="{{ block.settings.contact_url }}">{{ block.settings.contact_label | escape }}</a>
+  {%- endif -%}
+</div>
+{% stylesheet %}
+  .confidence-trust { border-top: 1px solid rgba(var(--color-foreground), .12); padding-top: 1.4rem; font-size: 1.5rem; line-height: 1.5; }
+  .confidence-trust__secure { display: flex; gap: .8rem; align-items: center; margin: 0 0 1rem; font-weight: 600; }
+  .confidence-trust__secure svg { width: 1.8rem; height: 1.8rem; display: block; }
+  .confidence-trust__payments { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1rem; }
+  .confidence-trust__payments svg { display: block; width: 3.8rem; height: 2.4rem; }
+  .confidence-trust__contact { display: inline-flex; align-items: center; min-height: 4.4rem; font-size: inherit; }
+{% endstylesheet %}
