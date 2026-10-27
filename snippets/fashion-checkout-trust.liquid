@@ -8,7 +8,7 @@
   {%- endif -%}
   {%- if block.settings.show_payments and shop.enabled_payment_types.size > 0 -%}
     <ul class="confidence-trust__payments list-unstyled" role="list">
-      {%- for type in shop.enabled_payment_types -%}
+      {%- for type in shop.enabled_payment_types limit: 6 -%}
         <li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
       {%- endfor -%}
     </ul>
