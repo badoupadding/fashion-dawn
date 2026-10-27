@@ -1,5 +1,9 @@
 # Luxelette
 
+This review branch, **`luxelette-product-focus`**, contains the product-page and compact-homepage revision. See [the review notes](docs/product-focus-review.md). Preview it as a separate unpublished Shopify theme before merging into `luxelette`.
+
+The review version also includes larger green sale prices, lighter struck-through compare-at prices, native buy-button unit prices, and a desktop/mobile sticky add-to-cart. These features require no additional app. Set accurate price and compare-at price values on each Shopify variant; the theme does not invent discounts. Adjust the sale color in Fashion essentials, the native button price setting in its product block, and the sticky toggle in the product section.
+
 This is the **`luxelette` branch**: the ready-to-configure US women's-fashion version for **luxelette.com**. Connect this branch in Shopify. Start with the [Luxelette launch guide](docs/luxelette-launch.md), which distinguishes what is bundled from the remaining store settings.
 
 Luxelette branding, homepage copy, editorial imagery, monogram, navigation and About/Contact/FAQ templates are included. Shopify products, pages, menus, domain, USD, policies and app configuration must be set in the store. The homepage does not feature the existing store's men's catalog.

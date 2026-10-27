@@ -1,0 +1,55 @@
+<div class="fashion-collection-tiles color-{{ section.settings.color_scheme }} gradient" style="--tiles-spacing: {{ section.settings.spacing }}px">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="h1">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+    <ul class="fashion-collection-tiles__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign category = block.settings.collection
+          assign category_image = block.settings.image | default: category.featured_image
+          assign category_url = category.url | default: block.settings.link
+          assign category_title = block.settings.title | default: category.title
+        -%}
+        {%- if category_url != blank and category_title != blank -%}
+          <li {{ block.shopify_attributes }}>
+            <a class="fashion-collection-tiles__card" href="{{ category_url }}">
+              {%- if category_image != blank -%}
+                {{ category_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '200, 400, 600, 800', sizes: '(min-width: 990px) 25vw, 50vw', class: 'fashion-collection-tiles__image' }}
+              {%- endif -%}
+              <span class="fashion-collection-tiles__caption"><span>{{ category_title | escape }}</span><span aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+{% stylesheet %}
+  .fashion-collection-tiles { padding-block: var(--tiles-spacing); }
+  .fashion-collection-tiles h2 { margin: 0 0 2.4rem; }
+  .fashion-collection-tiles__grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 2rem; padding: 0; margin: 0; list-style: none; }
+  .fashion-collection-tiles__card { display: block; color: rgb(var(--color-foreground)); text-decoration: none; border: .1rem solid rgba(var(--color-foreground),.15); background: rgb(var(--color-background)); }
+  .fashion-collection-tiles__image { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  .fashion-collection-tiles__caption { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 1.6rem; min-height: 5.6rem; font-size: 1.6rem; font-weight: 500; }
+  .fashion-collection-tiles__card:hover .fashion-collection-tiles__caption { text-decoration: underline; text-underline-offset: .4rem; }
+  @media screen and (max-width: 989px) { .fashion-collection-tiles__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.2rem; } }
+{% endstylesheet %}
+{% schema %}
+{
+  "name":"Fashion category tiles",
+  "tag":"section",
+  "disabled_on":{"groups":["header","footer"]},
+  "max_blocks":6,
+  "settings":[
+    {"type":"text","id":"heading","label":"Heading","default":"Shop by category"},
+    {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"},
+    {"type":"range","id":"spacing","label":"Vertical spacing","min":16,"max":64,"step":4,"unit":"px","default":32}
+  ],
+  "blocks":[{"type":"category","name":"Category","settings":[
+    {"type":"collection","id":"collection","label":"Collection"},
+    {"type":"image_picker","id":"image","label":"Image override"},
+    {"type":"text","id":"title","label":"Title"},
+    {"type":"url","id":"link","label":"Fallback link","info":"Used until a collection is selected. No placeholder image is displayed."}
+  ]}],
+  "presets":[{"name":"Fashion category tiles"}]
+}
+{% endschema %}

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "logo_width": 160,
@@ -804,7 +795,8 @@
       "brand_home_title": "Luxelette | Women’s Fashion for Your Everyday",
       "brand_home_description": "Discover women’s fashion with an effortless point of view. Explore dresses, knitwear, tops, and everyday layers at Luxelette.",
       "use_brand_favicon": true,
-      "heading_style": "clean"
+      "heading_style": "clean",
+      "fashion_sale_color": "#17633F"
     },
     "Modern minimal": {
       "logo_width": 140,
