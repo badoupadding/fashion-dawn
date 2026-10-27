@@ -1,7 +1,9 @@
 {% doc %}
   Applies the optional fashion reading and interaction defaults to native Dawn components.
 {% enddoc %}
+{% if settings.fashion_clean_layout %}{{ 'fashion-clean.css' | asset_url | stylesheet_tag }}{% endif %}
 {% style %}
+  :root { --fashion-card-title-lines: {{ settings.fashion_card_title_lines | default: 2 }}; }
   :root {
     --fashion-control-height: {{ settings.fashion_control_height | default: 48 }}px;
     --fashion-product-title-size: {{ settings.fashion_product_title_size | default: 32 }}px;

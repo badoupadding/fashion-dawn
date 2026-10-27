@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "logo_width": 180,
+    "logo_width": 160,
     "type_header_font": "assistant_n4",
     "heading_scale": 110,
     "type_body_font": "assistant_n4",
@@ -120,7 +120,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "currency_code_enabled": true,
+    "currency_code_enabled": false,
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
@@ -214,7 +214,9 @@
       }
     },
     "fashion_sale_color": "#17633F",
-    "fashion_show_savings": true
+    "fashion_show_savings": true,
+    "fashion_clean_layout": true,
+    "fashion_card_title_lines": 2
   },
   "presets": {
     "Classic navy": {

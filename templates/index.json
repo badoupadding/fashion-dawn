@@ -5,7 +5,7 @@
       "settings": {
         "use_luxelette_image": true,
         "heading_tag": "h1",
-        "image_height": "medium",
+        "image_height": "small",
         "image_overlay_opacity": 0,
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
@@ -20,14 +20,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The collection sale",
-            "heading_size": "h0"
+            "heading": "Style for your everyday.",
+            "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Winter layers and classic footwear, now for less. Available while stock lasts.",
+            "text": "Discover winter layers and classic shoes in the collection sale.",
             "text_style": "body"
           }
         },
@@ -53,35 +53,28 @@
       "type": "rich-text",
       "settings": {
         "color_scheme": "scheme-2",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "content_alignment": "center",
         "full_width": true,
         "anchor_id": "luxelette-story"
       },
       "blocks": {
-        "anchor": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A note from Luxelette</p>"
-          }
-        },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "A little elegance. A lot of you.",
-            "heading_size": "h1"
+            "heading": "Easy to wear. Yours to style.",
+            "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Luxelette is about finding pieces that feel like you. Discover your own mix of winter layers and classic footwear.</p>"
+            "text": "<p>Winter layers and classic footwear, chosen for a wardrobe that feels like you.</p>"
           }
         }
       },
       "block_order": [
-        "anchor",
         "heading",
         "text"
       ]
@@ -89,16 +82,16 @@
     "faq": {
       "type": "collapsible-content",
       "settings": {
-        "heading": "Shopping with Luxelette",
-        "heading_size": "h1",
-        "caption": "The shopping guide",
+        "heading": "Here to help",
+        "heading_size": "h2",
+        "caption": "",
         "heading_alignment": "center",
         "layout": "none",
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",
         "open_first_collapsible_row": false,
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "anchor_id": "luxelette-faq"
       },
       "blocks": {
@@ -121,9 +114,9 @@
         "delivery": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What should I review before checkout?",
+            "heading": "Can I get help before ordering?",
             "icon": "check_mark",
-            "row_content": "<p>Check your chosen color, size, quantity, and shipping address. Review the store’s current shipping and return policies before placing an order. Available shipping methods and charges are shown during checkout.</p>"
+            "row_content": "<p>Yes. For help with sizing or product details, <a href=\"/pages/contact\">contact Luxelette before placing your order</a>.</p>"
           }
         }
       },
@@ -138,21 +131,21 @@
       "settings": {
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 32,
-        "padding_bottom": 40
+        "padding_top": 24,
+        "padding_bottom": 32
       },
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "A little Luxelette in your inbox.",
-            "heading_size": "h1"
+            "heading": "Keep in touch",
+            "heading_size": "h2"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Sign up for collection updates, style notes, and new things to discover.</p>"
+            "text": "<p>New arrivals and collection updates, by email.</p>"
           }
         },
         "email": {
@@ -170,7 +163,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Winter Outerwear",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -189,8 +182,8 @@
         "show_rating": true,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "collection": "winter-outerwear",
         "hide_until_collection_selected": true
       }
@@ -199,7 +192,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Mary Janes & Classic Loafers",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -218,8 +211,8 @@
         "show_rating": true,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "collection": "mary-janes-classic-loafers",
         "hide_until_collection_selected": true
       }

@@ -1,0 +1,47 @@
+.fashion-clean-layout .banner__heading { font-size: clamp(3rem, 3.6vw, 4.4rem); line-height: 1.15; }
+.fashion-clean-layout .banner__text { max-width: 40rem; font-size: 1.6rem; line-height: 1.55; }
+.fashion-clean-layout .banner__box { padding-block: 3rem; }
+.fashion-clean-layout .collection__title .title, .fashion-clean-layout .collapsible-content__heading,
+.fashion-clean-layout .rich-text__heading, .fashion-clean-layout .newsletter h2 { font-size: clamp(2.4rem, 2.4vw, 3.2rem); line-height: 1.25; }
+.fashion-clean-layout .title-wrapper-with-link { margin-bottom: 2rem; }
+.fashion-clean-layout .product-grid .card__heading { font-size: 1.6rem; line-height: 1.5; font-weight: 500; }
+.fashion-clean-layout .product-grid .card__heading > a { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--fashion-card-title-lines); line-clamp: var(--fashion-card-title-lines); overflow: hidden; min-height: calc(var(--fashion-card-title-lines) * 1.5em); }
+.fashion-clean-layout .product-grid .card__information { padding-top: 1.2rem; padding-bottom: 1rem; }
+.fashion-clean-layout .product-grid .card-information { padding-top: .8rem; }
+.fashion-clean-layout .product-grid .product-card-wrapper .card:not(.card--horizontal) .card-information > .price { min-height: 5rem; }
+.fashion-clean-layout .product-grid .product-card-wrapper .price--on-sale .price__sale { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .2rem .8rem; }
+.fashion-clean-layout .product-grid .product-card-wrapper .price .price-item--sale,
+.fashion-clean-layout .product-grid .product-card-wrapper .price:not(.price--on-sale) .price__regular .price-item--regular { font-size: 1.8rem; line-height: 1.5; }
+.fashion-clean-layout .product-grid .product-card-wrapper .price--on-sale .price-item--regular { font-size: 1.3rem; line-height: 1.5; }
+.fashion-clean-layout .product-grid .quick-add__submit { min-height: 4.8rem; font-size: 1.5rem; border-radius: .2rem; }
+.fashion-clean-layout .product-grid .badge { font-size: 1.2rem; padding: .5rem .8rem; font-weight: 500; letter-spacing: normal; }
+.fashion-clean-layout .product__info-container > * + * { margin-block: 1.2rem; }
+.fashion-clean-layout .product__title h1 { font-size: clamp(2.4rem, 2.4vw, 3rem); line-height: 1.3; }
+.fashion-clean-layout .product-form__input { margin-block: 1.4rem; }
+.fashion-clean-layout .product-form__input--pill input[type='radio'] + label { padding: .8rem 1.2rem; margin-right: .5rem; }
+.fashion-clean-layout .product-form__submit { min-height: 5.6rem; }
+.fashion-clean-layout .product__inventory { font-size: 1.5rem; line-height: 1.5; }
+.fashion-clean-layout .price__badge-sale { display: none; }
+.fashion-clean-layout .confidence-trust { border-top: 0; padding-top: .4rem; }
+.fashion-clean-layout .confidence-trust__secure { margin-bottom: .8rem; font-size: 1.4rem; }
+.fashion-clean-layout .confidence-trust__payments { gap: .5rem; margin-bottom: .2rem; }
+.fashion-clean-layout .confidence-trust__payments svg { width: 3.5rem; height: 2.2rem; }
+.fashion-clean-layout .confidence-trust__contact { font-size: 1.4rem; }
+.fashion-clean-layout .product__accordion summary { min-height: 5.2rem; padding-block: 1.4rem; }
+.fashion-clean-layout .product__accordion .accordion__title { font-size: 1.6rem; }
+.fashion-clean-layout .product__description, .fashion-clean-layout .product__accordion .rte { font-size: 1.6rem; line-height: 1.65; }
+.fashion-clean-layout .product__accordion .rte p, .fashion-clean-layout .product__accordion .rte li { font-size: 1.6rem !important; line-height: 1.65 !important; }
+.fashion-clean-layout .product__accordion .rte h1, .fashion-clean-layout .product__accordion .rte h2, .fashion-clean-layout .product__accordion .rte h3 { font-size: 2rem !important; line-height: 1.35 !important; }
+.fashion-clean-layout .product__accordion .rte img, .fashion-clean-layout .product__accordion .rte table { max-width: 100%; }
+.fashion-clean-layout .product__accordion .rte table { display: block; overflow-x: auto; }
+.fashion-clean-layout .fashion-sticky-options__change { min-height: 4.4rem; display: inline-flex; align-items: center; padding-block: .5rem; font-size: 1.4rem; }
+@media screen and (max-width: 749px) {
+  .fashion-clean-layout .banner__box { padding: 2.4rem 2rem; }
+  .fashion-clean-layout .banner__heading { font-size: 3rem; }
+  .fashion-clean-layout .banner__buttons { gap: 1rem; }
+  .fashion-clean-layout .banner__buttons .button { min-width: 12rem; min-height: 4.8rem; padding-inline: 1.6rem; }
+  .fashion-clean-layout .product-grid .card__heading { font-size: 1.6rem; }
+  .fashion-clean-layout .fashion-sticky-options__title { display: none; }
+  .fashion-clean-layout .fashion-sticky-options__selection { font-size: 1.4rem; }
+  .fashion-clean-layout .fashion-sticky-options .button { min-height: 5.2rem; }
+}

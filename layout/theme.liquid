@@ -335,7 +335,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.heading_style == 'editorial' %} luxelette-editorial{% elsif settings.heading_style == 'clean' %} luxelette-clean{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.fashion_clean_layout %} fashion-clean-layout{% endif %}{% if settings.fashion_enabled %} fashion-theme{% endif %}{% if settings.heading_style == 'editorial' %} luxelette-editorial{% elsif settings.heading_style == 'clean' %} luxelette-clean{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
